@@ -19,7 +19,7 @@ const Hero = () => {
             <Stack direction={"column"} spacing={1}>
                 <Heading
                     as="h2"
-                    fontSize={'2xl'}
+                    fontSize={'xl'}
                     fontWeight={500}
                     color={'primary'}
                 >Hi, my name is</Heading>
@@ -38,7 +38,7 @@ const Hero = () => {
                 <Box maxW={'600px'} pt={3}>
                     <Text
                         fontWeight={400}
-                        letterSpacing="wide"
+                        // letterSpacing="wide"
                         // fontSize={}
                         // color="w"
                         lineHeight={'tall'}
@@ -50,6 +50,8 @@ const Hero = () => {
                         variant="outline"
                         colorScheme={'green'}
                         color={'primary'}
+                        borderRadius={0}
+                        rounded="none"
                         lineHeight={1}
                     >
                         Get in Contact!

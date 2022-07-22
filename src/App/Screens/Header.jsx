@@ -11,10 +11,10 @@ import Hero from '../Components/Hero';
 
 const Header = () => {
 
-    const links = ['home', 'about', 'projects', 'contact'];
+    const links = ['home', 'about', 'skills', 'projects', 'contact'];
 
     return (
-        <Container maxW={'6xl'} minH="100vh">
+        <Container maxW={'5xl'} minH="100vh">
             <Stack direction={'row'} justifyContent="space-between" py={7}>
                 <Box>
                     Logo here!

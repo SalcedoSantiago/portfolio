@@ -12,11 +12,12 @@ import Play from '../../Icons/play';
 const About = () => {
 
     return (
-        <Box py={"120px"}>
+        <Box>
             <Stack
                 direction={'row'}
                 justifyContent="center"
                 spacing={'60px'}
+                pb={'120px'}
             >
                 <Box>
                     <Image src='https://bit.ly/dan-abramov' alt='Santiago Salcedo' />
@@ -33,9 +34,15 @@ const About = () => {
                     <Text>
                         Fast-forward to today, and I've had the privilege of working at an advertising agency, a start-up, a huge corporation, and a student-led design studio. My main focus these days is building accessible, inclusive products and digital experiences at Upstatement for a variety of clients.
                     </Text>
-                    <Button>Download cv</Button>
-                    <Button>Hire me</Button>
-                    {/* <Text>Here are a few technologies I've been working with recently:</Text> */}
+                    <Stack
+                        direction={'row'}
+                        spacing={3}
+                        alignItems={'center'}
+                        py={3}
+                    >
+                        <Button colorScheme={'green'}>Download cv</Button>
+                        <Button colorScheme={'green'}>Hire me</Button>
+                    </Stack>
                 </Box>
             </Stack>
         </Box>

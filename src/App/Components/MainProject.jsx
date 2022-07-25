@@ -17,31 +17,31 @@ const MainProject = ({ direction = 'r' }) => {
             spacing={7}
             justifyContent="space-between"
             align={'center'}
+            textAlign={direction == 'r' ? 'start' : 'end'}
         >
             {
                 direction == 'l' && <ImageProject />
             }
             <Stack direction={'column'} w="50%">
-                <Text
-                    color='secondary'
-                    fontWeight={400}
-                    fontSize="sm"
-                    // fontFamily={"'Space Mono'"}
-                >
-                    Featured Project
-                </Text>
                 <Heading
-                    color="gray.300"
-                    fontSize={'2xl'}
-                    pb={4}
+                    pt={2}
+                    color="primary"
+                    fontSize={'3xl'}
+                    textAlign={direction == 'r' ? 'start' : 'end'}
                     // pt={2}
                     fontWeight={600}
-                    fontFamily={"'Space Mono'"}
+                    fontFamily={"'Inter'"}
                 >
-                    Halcyon Theme
+                    Pokedex App
                 </Heading>
 
-
+                <Text
+                    fontSize={'sm'}
+                    pb={4}
+                    color={'gray.400'}
+                >
+                    Website, App
+                </Text>
                 <Text
                     color={'gray.200'}
                     fontSize="sm"
@@ -52,9 +52,37 @@ const MainProject = ({ direction = 'r' }) => {
                     A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.
                 </Text>
 
-                <Stack direction={'row'} justifyContent='end' pt={4}>
-                    <ExternalLinkIcon />
-                    <Github />
+                <Stack
+                    direction={'row'}
+                    align={'center'}
+                    pt={4}
+                    justifyContent={direction == 'r' ? 'start' : 'end'}
+
+                >
+                    <Box
+                        cursor={'pointer'}
+                        as="a"
+                        href='https://www.google.com'
+                        target={'_blank'}
+                        color="gray.400"
+                        _hover={{
+                            color: 'primary'
+                        }}
+                    >
+                        <ExternalLinkIcon />
+                    </Box>
+                    <Box
+                        cursor={'pointer'}
+                        as="a"
+                        href='https://www.google.com'
+                        target={'_blank'}
+                        color="gray.400"
+                        _hover={{
+                            color: 'primary'
+                        }}
+                    >
+                        <Github />
+                    </Box>
                 </Stack>
             </Stack>
 

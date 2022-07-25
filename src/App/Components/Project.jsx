@@ -2,60 +2,82 @@
  * External dependencies
  */
 import React from 'react'
-import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container } from '@chakra-ui/react';
+import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container, Badge } from '@chakra-ui/react';
 import Github from '../../Icons/github';
 import { ExternalLinkIcon } from '@chakra-ui/icons'
-
-
-/**
- * Internal dependencies
- */
-
-import Image_ from '../../assets/test.jpg'
-
 
 const Project = () => {
     return (
         <Stack
+            as="a"
+            href='https://www.google.com'
+            target={'_blank'}
             w={'calc(33% - 1rem)'}
             direction={'column'}
             bgColor={'gray.700'}
+            textDecoration="none"
             px={4}
             py={3}
             pb={6}
-            rounded="xl"
+            // rounded="xl"
             shadow={'xl'}
+            transition="all .2s ease-out"
+            cursor={'pointer'}
+            _hover={{
+                transform: "translateY(-1em)"
+            }}
         >
-            <Box position={'relative'} cursor="pointer" as="a" href="https://google.com" target={'_blank'}>
-                <Image
-                    boxSize="100%"
-                    src={Image_}
-                />
-                <Box _hover={{ bgColor: "transparent" }} position={'absolute'} w={'100%'} h="100%" top={0} bgColor="#0c2c043d"></Box>
-            </Box>
             <Box
                 pl={2}
             >
-                <Heading
-                    color="secondary"
-                    fontSize={'xl'}
-                    py={4}
-                    fontFamily={"'Space Mono'"}
-                >
-                    Halcyon Theme
-                </Heading>
-
+                <Stack direction={'row'} justifyContent='space-between'>
+                    <Heading
+                        color="primary"
+                        fontSize={'2xl'}
+                        fontWeight={600}
+                        py={4}
+                        fontFamily={"'Space Mono'"}
+                    >
+                        Halcyon Theme
+                    </Heading>
+                    <Stack direction={'row'} justifyContent='end' align={'center'}>
+                        <Box
+                            cursor={'pointer'}
+                            as="a"
+                            href='https://www.google.com'
+                            target={'_blank'}
+                            color="gray.400"
+                            _hover={{
+                                color: 'primary'
+                            }}
+                        >
+                            <ExternalLinkIcon />
+                        </Box>
+                        <Box
+                            cursor={'pointer'}
+                            as="a"
+                            href='https://www.google.com'
+                            target={'_blank'}
+                            color="gray.400"
+                            _hover={{
+                                color: 'primary'
+                            }}
+                        >
+                            <Github />
+                        </Box>
+                    </Stack>
+                </Stack>
                 <Text
                     fontSize={'sm'}
-                    color={'gray.300'}
+                    color={'white'}
                     pb={7}
                 >
                     A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace.
                 </Text>
-            
-                <Stack direction={'row'} justifyContent='end' align={'center'}>
-                    <ExternalLinkIcon />
-                    <Github />
+                <Stack direction={'row'}>
+                    <Badge colorScheme={'blue'}>html</Badge>
+                    <Badge colorScheme={'blue'}>css</Badge>
+                    <Badge colorScheme={'blue'}>JS</Badge>
                 </Stack>
             </Box>
         </Stack>

@@ -23,7 +23,6 @@ const Projects = () => {
         >
             <Box>
 
-                {/* <Divider /> */}
                 <Heading
                     px={6}
                     fontFamily={'Inter'}
@@ -33,13 +32,12 @@ const Projects = () => {
                     display={'block'}
                     w={'100%'}
                 >
-                    Some Things I’ve Built
+                    Latest Projects
                 </Heading>
-                {/* <Divider /> */}
                 <Stack
                     direction={'column'}
                     py={6}
-                    spacing={'80px'}
+                    spacing={'100px'}
                 >
                     <MainProject direction='r' />
                     <MainProject direction='l' />
@@ -47,7 +45,9 @@ const Projects = () => {
                 </Stack>
             </Box>
 
-            <Box>
+            <Box
+                pt={"100px"}
+            >
                 <Heading
                     textAlign={'center'}
                     py={7}

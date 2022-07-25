@@ -16,7 +16,7 @@ const Skill = ({ text, image = '' }) => {
             bgColor={'#3b3f57'}
             shadow={'xl'}
             w="auto"
-            minW={'190px'}
+            minW={'150px'}
             py={4}
             px={6}
             rounded="xl"
@@ -30,6 +30,7 @@ const Skill = ({ text, image = '' }) => {
             <Text
                 // fontWeight={600}
                 // fontFamily={"'Space Mono'"}
+                fontSize={'sm'}
             >
                 {text}
             </Text>

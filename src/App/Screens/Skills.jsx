@@ -96,7 +96,7 @@ const Skills = () => {
     return (
         <Box
             py={'60px'}
-        // px={'90px'}
+            px={'90px'}
         >
             {/* <Divider /> */}
             <Heading
@@ -120,7 +120,6 @@ const Skills = () => {
                         color={'gray.100'}
                         fontSize={'lg'}
                         fontWeight={600}
-                        fontFamily={"'Space Mono'"}
                         py={4}
                     >
                         Programming Lenguaje
@@ -145,7 +144,6 @@ const Skills = () => {
                         color={'gray.100'}
                         fontSize={'lg'}
                         fontWeight={600}
-                        fontFamily={'Inter'}
                         py={4}
                     >
                         Libraries & Frameworks
@@ -167,7 +165,6 @@ const Skills = () => {
                         color={'gray.100'}
                         fontSize={'lg'}
                         fontWeight={600}
-                        fontFamily={'Inter'}
                         py={4}
                     >
                         Tools & Platforms

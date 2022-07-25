@@ -110,10 +110,14 @@ const About = () => {
                     >
                         <Email />
                     </Box>
+
+
                     <Box cursor={'pointer'} fontWeight={600} bgColor={'gray.600'} color="gray.300" p={2} px={3} borderRadius="6px" borderWidth="1px" borderColor="gray.900">
                         @ Email Me
                     </Box>
                 </Stack>
+
+
 
             </Box>
 

@@ -12,6 +12,9 @@ import MainProject from '../Components/MainProject';
  * Internal dependencies
  */
 
+import Pokedex from '../../assets/pokedex.jpg'
+import Todo from '../../assets/todo.jpg'
+
 
 
 const Projects = () => {
@@ -22,25 +25,41 @@ const Projects = () => {
             spacing={'60px'}
         >
             <Box>
-
                 <Heading
-                    px={6}
                     fontFamily={'Inter'}
                     textAlign={'center'}
                     color="white"
-                    pb={'60px'}
                     display={'block'}
                     w={'100%'}
+                    pb={3}
+
                 >
                     Latest Projects
                 </Heading>
+                <Text
+                    px="90px"
+                    textAlign={'center'}
+                    pb={'60px'}
+                    color="gray.300"
+                >
+                    This page contains a list of my work, from Design case studies, to experimental hobby projects, to instances when I went ham and to hackathons.
+                    This is not fully complete now, but here is a overlook of what I used to get this site up and running.
+                </Text>
                 <Stack
                     direction={'column'}
                     py={6}
                     spacing={'100px'}
                 >
-                    <MainProject direction='r' />
-                    <MainProject direction='l' />
+                    <MainProject
+                        image={Pokedex}
+                        direction='r'
+                        title={'Pokedex'}
+                    />
+                    <MainProject 
+                    direction='r'
+                    image={Todo}
+                    title="Todo App"
+                    />
                     <MainProject direction='r' />
                 </Stack>
             </Box>

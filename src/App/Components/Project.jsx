@@ -6,7 +6,9 @@ import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container, Badge 
 import Github from '../../Icons/github';
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
-const Project = () => {
+const Project = ({ image }) => {
+
+
     return (
         <Stack
             as="a"
@@ -16,8 +18,6 @@ const Project = () => {
             direction={'column'}
             bgColor={'gray.700'}
             textDecoration="none"
-            px={4}
-            py={3}
             pb={6}
             // rounded="xl"
             shadow={'xl'}
@@ -27,10 +27,18 @@ const Project = () => {
                 transform: "translateY(-1em)"
             }}
         >
+            {
+                image && <Image
+                    src={image}
+                />
+            }
             <Box
-                pl={2}
+                px={5}
+                py={3}
             >
+
                 <Stack direction={'row'} justifyContent='space-between'>
+
                     <Heading
                         color="primary"
                         fontSize={'2xl'}

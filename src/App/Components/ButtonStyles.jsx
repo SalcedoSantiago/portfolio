@@ -5,16 +5,21 @@ export const ButtonStyles = {
     sizes: {},
     variants: {
         primary: {
-            bg: "primary",
-            color: "dark",
+            bg: "transparent",
+            borderColor: "primary",
+            borderWidth: "2px",
+            borderStyled: "solid",
+            color: "primary",
             _hover: {
-                color: "white"
+                // color: "slate",
+                // bg: "primary",
+                transform: "scale(1.1)"
             }
         }
     },
     defaultProps: {
-        size: 'lg', // default is md
-        variant: 'sm', // default is solid
-        colorScheme: 'green', // default is gray
+        // size: 'lg', // default is md
+        // variant: 'sm', // default is solid
+        // colorScheme: 'green', // default is gray
     },
 }

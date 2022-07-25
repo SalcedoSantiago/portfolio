@@ -2,7 +2,7 @@
  * External dependencies
  */
 import React from 'react'
-import { Container, Stack, Box, Link, Text } from '@chakra-ui/react'
+import { Container, Stack, Box, Link, Text, Button } from '@chakra-ui/react'
 import Hero from '../Components/Hero';
 
 /**
@@ -21,17 +21,29 @@ const Header = () => {
                 >
                     Santiagod
                 </Box>
-                <Stack as={'nav'} direction={'row'} spacing={'30px'}>
+                <Stack as={'nav'} direction={'row'} spacing={'30px'} align={'center'}>
                     {links.map((link) =>
-                        <Link
+                        <Text
                             as="a"
                             textTransform={'capitalize'}
-                            fontSize="20px"
+                            fontSize="18px"
+                            fontFamily={'Jost'}
                             cursor="pointer"
+                            textDecor={'none'}
+                            color="gray.300"
                         >
                             {link}
-                        </Link >
+                        </Text >
                     )}
+                    <Button
+                        px={6}
+                        variant="primary"
+                        // colorScheme={'whatsapp'}
+                        // color="primary"
+                        borderRadius={0}
+                    >
+                        Donwload cv
+                    </Button>
                 </Stack>
             </Stack>
 

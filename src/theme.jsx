@@ -18,7 +18,7 @@ export default extendTheme({
         dark: '#1e202c'
     },
     components: {
-        // Button,
+        Button,
     },
     fonts: {
         body: `'Jost', sans-serif`,

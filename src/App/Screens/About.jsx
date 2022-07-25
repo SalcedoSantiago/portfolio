@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 import React from 'react'
-import { Stack, Text, Box, Image, Heading, Flex, Button, Container, Grid, styled } from '@chakra-ui/react';
+import { Stack, Text, Box, Image, Heading, Flex, Button, Container, Grid, styled, Divider } from '@chakra-ui/react';
 import Play from '../../Icons/play';
 import Skill from '../Components/Skill';
 
@@ -11,6 +11,9 @@ import Skill from '../Components/Skill';
  */
 
 import devs from '../../assets/dev.png'
+import Linkedin from '../../Icons/linkedin';
+import Github from '../../Icons/github';
+import Email from '../../Icons/email';
 
 const About = () => {
 
@@ -55,12 +58,13 @@ const About = () => {
         >
             <Box
                 // maxW='50%'
-                maxW={'880px'}
+                color="gray.300"
             >
                 <Heading
                     fontSize={'5xl'}
                     // color="primary"
                     // fontWeight="500"
+                    color="gray.100"
                     textAlign={'center'}
                     py={6}
                 >
@@ -86,75 +90,30 @@ const About = () => {
                     lineHeight={'35px'}
                     py={3}
                 >
-                    Here are a few technologies I’ve been working with recently:
+                    Currently I'm a UI Developer @ Media.net where I work on various applications under Forbes, primarily on Advisor (US and UK), Wheels, Homes and Health WordPress applications.
                 </Text>
 
-                {/* <Stack direction={'row'} spacing={'100px'} pt="30px">
-                    <Stack >
-                        <Heading fontSize={'lg'} fontWeight={500}>Programming Lenguaje</Heading>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>HTML</Text>
-                        </Flex>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>Css</Text>
-                        </Flex>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>Js</Text>
-                        </Flex>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>Php</Text>
-                        </Flex>
-                    </Stack>
+                <Stack py={7} mt="20px" direction={'row'} justifyContent={'center'} align='center' spacing={6}>
+                    <Box
+                        color="gray.300"
+                    >
+                        <Linkedin />
+                    </Box>
+                    <Box
+                        color="gray.300"
+                    >
+                        <Github />
+                    </Box>
 
-                    <Stack>
-                        <Heading fontSize={'lg'} fontWeight={500}>Libraries & Frameworks</Heading>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>React</Text>
-                        </Flex>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>Nextjs</Text>
-                        </Flex>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>Chakra</Text>
-                        </Flex>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>Jquery</Text>
-                        </Flex>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>Node</Text>
-                        </Flex>
-                    </Stack>
-
-                    <Stack>
-                        <Heading fontSize={'lg'} fontWeight={500}>Tools & Platforms</Heading>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>Wordpress</Text>
-                        </Flex>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>Github</Text>
-                        </Flex>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>Webpack</Text>
-                        </Flex>
-                        <Flex gap={3}>
-                            <Play />
-                            <Text>NPM</Text>
-                        </Flex>
-                    </Stack>
-
-                </Stack> */}
+                    <Box
+                        color="gray.300"
+                    >
+                        <Email />
+                    </Box>
+                    <Box cursor={'pointer'} fontWeight={600} bgColor={'gray.600'} color="gray.300" p={2} px={3} borderRadius="6px" borderWidth="1px" borderColor="gray.900">
+                        @ Email Me
+                    </Box>
+                </Stack>
 
             </Box>
 

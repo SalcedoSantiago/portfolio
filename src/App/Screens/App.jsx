@@ -23,7 +23,6 @@ const App = () => {
         <Box minH={'100vh'}>
             <Header />
             <Container maxW={'5xl'}>
-                <HeroOld />
                 <About />
                 <Skills />
                 <Projects />
@@ -37,7 +36,7 @@ const App = () => {
                 as="a"
                 color={'gray.300'}
                 cursor={'pointer'}
-                fontFamily="'Space Mono'"
+                fontFamily="'Inter'"
                 right={0}
             >
                 <Stack direction={'row'} align='center'>
@@ -52,13 +51,12 @@ const App = () => {
 
 
             <Box
-                // transform={'rotate(0.25turn)'}
                 position="fixed"
                 bottom={'160px'}
                 as="a"
                 color={'gray.300'}
                 cursor={'pointer'}
-                fontFamily="'Space Mono'"
+                fontFamily="'Inter'"
                 left={'100px'}
             >
                 <Stack direction={'column'} justifyContent={'center'} align='center' spacing={6}>

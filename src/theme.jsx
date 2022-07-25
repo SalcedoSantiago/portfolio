@@ -21,8 +21,8 @@ export default extendTheme({
         // Button,
     },
     fonts: {
-        body: `'Inter', sans-serif`,
-        heading: `'Inter',sans-serif`
+        body: `'Jost', sans-serif`,
+        heading: `'League Spartan',sans-serif`
     },
     styles: {
         global: {

@@ -8,8 +8,9 @@ const Html = () => {
 
     return (
         <Image
-        objectFit={'contain'}
-            src={imageHtml}
+            // objectFit={'cover'}
+            boxSize={'30px'}
+            src={'https://cdn-icons-png.flaticon.com/512/732/732212.png'}
         />
     )
 }

@@ -8,22 +8,28 @@ import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container } from 
  * Internal dependencies
  */
 
-const Skill = ({ text, icon }) => {
+const Skill = ({ text, image = '' }) => {
     return (
         <Stack
             direction={'row'}
             spacing={3}
-            bgColor={'#2a2524'}
+            bgColor={'#3b3f57'}
             shadow={'xl'}
-            w="200px"
+            w="auto"
+            minW={'190px'}
             py={4}
-            px={3}
+            px={6}
             rounded="xl"
+            alignItems={'center'}
         >
-            {icon}
+            <Image
+                // objectFit={'cover'}
+                boxSize={'30px'}
+                src={image || 'https://cdn-icons-png.flaticon.com/512/732/732212.png'}
+            />
             <Text
-                fontWeight={500}
-                // textTransform='uppercase'
+                // fontWeight={600}
+                // fontFamily={"'Space Mono'"}
             >
                 {text}
             </Text>

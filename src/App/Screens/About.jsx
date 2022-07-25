@@ -19,8 +19,32 @@ const About = () => {
                 spacing={'60px'}
                 pb={'120px'}
             >
-                <Box>
-                    <Image src='https://bit.ly/dan-abramov' alt='Santiago Salcedo' />
+                <Box
+                    position={'relative'}
+                >
+                    <Image src="https://media-exp1.licdn.com/dms/image/C4D03AQFnMG2umUUTBA/profile-displayphoto-shrink_800_800/0/1653102388665?e=1664409600&v=beta&t=iI3GqRXIY9_gGIpPZjnKWphYNKpTeJFvVCnjZE8qCos"
+                        shadow='2xl'
+                        alt='Santiago Salcedo'
+                        zIndex={999}
+                        position="relative"
+                    />
+                    <Box
+                        w={'100%'}
+                        h={'100%'}
+                        borderWidth={4}
+                        borderStyle="solid"
+                        borderColor={'secondary'}
+                        p={2}
+                        position="absolute"
+                        top={'30px'}
+                        left={'-30px'}
+                        _hover={{
+                            top: '20px',
+                            left: '-20px',
+                        }}
+
+                    >
+                    </Box>
                 </Box>
                 <Box maxW={'600px'}>
                     <Heading>

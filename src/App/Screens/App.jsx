@@ -9,6 +9,7 @@ import { Box, Container } from '@chakra-ui/react';
 import Header from './Header';
 import About from './About';
 import Skills from './Skills';
+import Projects from './Projects';
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
             <Container maxW={'5xl'}>
                 <About />
                 <Skills />
+                <Projects />
             </Container>
         </Box>
     )

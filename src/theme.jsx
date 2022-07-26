@@ -21,13 +21,13 @@ export default extendTheme({
         Button,
     },
     fonts: {
-        body: `'Jost', sans-serif`,
+        body: `'Karla', sans-serif`,
         heading: `'League Spartan',sans-serif`
     },
     styles: {
         global: {
             body: {
-                bg: '#1e202c',
+                bg: '#121212',
                 color: 'white',
             },
             a: {

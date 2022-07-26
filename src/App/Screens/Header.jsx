@@ -21,28 +21,38 @@ const Header = () => {
                 >
                     Santiagod
                 </Box>
-                <Stack as={'nav'} direction={'row'} spacing={'30px'} align={'center'}>
+                <Stack
+                    as={'nav'}
+                    direction={'row'}
+                    spacing={'30px'}
+                    align={'center'}
+                    
+                >
                     {links.map((link) =>
                         <Text
                             as="a"
                             textTransform={'capitalize'}
-                            fontSize="18px"
+                            fontSize="15px"
                             fontFamily={'Jost'}
                             cursor="pointer"
                             textDecor={'none'}
-                            color="gray.300"
+                            fontWeight={700}
+                            color="gray.400"
+                            _hover={{
+                                color: 'gray.200'
+                            }}
                         >
                             {link}
                         </Text >
                     )}
                     <Button
-                        px={6}
+                        px={4}
                         variant="primary"
                         // colorScheme={'whatsapp'}
                         // color="primary"
-                        borderRadius={0}
+                        borderRadius={2}
                     >
-                        Donwload cv
+                        resume
                     </Button>
                 </Stack>
             </Stack>

@@ -7,7 +7,7 @@ export const ButtonStyles = {
         primary: {
             bg: "transparent",
             borderColor: "primary",
-            borderWidth: "2px",
+            borderWidth: "1px",
             borderStyled: "solid",
             color: "primary",
             _hover: {

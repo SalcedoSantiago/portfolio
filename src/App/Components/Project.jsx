@@ -38,7 +38,6 @@ const Project = ({ image }) => {
             >
 
                 <Stack direction={'row'} justifyContent='space-between'>
-
                     <Heading
                         color="primary"
                         fontSize={'2xl'}

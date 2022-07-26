@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import { Stack, Link, Text, Box, Heading, Image, Flex, Button, Container } from '@chakra-ui/react';
+import styled from 'styled-components';
 
 /**
  * League Spartannal dependencies
@@ -12,7 +13,26 @@ import { Stack, Link, Text, Box, Heading, Image, Flex, Button, Container } from 
 import Me from '../../assets/yo.png'
 import ellipse from '../../assets/ellipse.png'
 
+
+
+
 const Hero = () => {
+
+    // const Text = styled(ChakraText)`
+    //     word-spacing: 1.7px;
+    //     color: var(--chakra-colors-gray-400);
+    //     letter-spacing: 0.7px;
+    //     font-weight: 400;
+    //     font-size: 18px;
+    //     .featured{
+    //         color :var(--chakra-colors-primary)
+    //     }
+    // `
+
+    // color = "gray.400"
+    // fontSize = "18px"
+    // lineHeight = { '1.3'}
+    // wordSpacing = { '1.7px'}
     return (
         <Stack
             direction={'column'}
@@ -27,7 +47,6 @@ const Hero = () => {
                             as="h1"
                             fontWeight={400}
                             fontSize="4xl"
-                            fontFamily="'League Spartan'"
                         >
                             Hello, i am
                         </Heading>
@@ -35,7 +54,6 @@ const Hero = () => {
                             as="h1"
                             fontWeight={700}
                             fontSize="7xl"
-                            fontFamily="'League Spartan'"
                         >
                             Santiago Salcedo
                         </Heading>
@@ -43,28 +61,23 @@ const Hero = () => {
                             fontWeight={500}
                             fontSize="4xl"
                             color={'primary'}
-                            fontFamily="'League Spartan'"
                         >
                             Front-end Developer
                         </Heading>
                         <Box
                             py={5}
+                            pt={6}
                             color="gray.300"
-                            maxW={'500px'}
-                        // fontFamily="'League Spartan'"
+                            letterSpacing='0.2px'
+                            maxW={'550px'}
+                            fontSize="18px"
                         >
-                            <Text
-                            >
-                                i have been working since 2012. i am proficient in ui design, user experience, researcher,
-                                <Box color={'secondary'} display='inline' pl="10px">
-                                    web development
-                                </Box>
-                            </Text>
-                            <Text>
-                                I’m one part marketer and one part word wrangler, often fueled by baked goods and a well-placed Oxford comma.
+                            <Text pb={2}>
+                                I have been working since 2018. i am proficient in programing, <Box as="span" color="primary"> web development</Box>
                             </Text>
                         </Box>
-                        <Flex py={6} gap={2}>
+
+                        <Flex py={2} gap={2}>
                             <Button
                                 my={6}
                                 py={6}
@@ -100,12 +113,17 @@ const Hero = () => {
                         borderRadius="9999"
                         src={Me}
                     />
-                    <Image
-                        src={ellipse}
+                    <Box
+                        width={'350px'}
+                        height={'350px'}
+                        bgColor={'#00B389'}
+                        borderRadius={99999}
                         position={'absolute'}
-                        bottom={'0'}
+                        bottom={1}
                         left={0}
-                    />
+                    >
+
+                    </Box>
                 </Box>
             </Stack>
         </Stack>

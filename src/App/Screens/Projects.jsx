@@ -48,7 +48,7 @@ const Projects = () => {
                 <Stack
                     direction={'column'}
                     py={6}
-                    spacing={'100px'}
+                    spacing={'60px'}
                 >
                     <MainProject
                         image={Pokedex}
@@ -58,7 +58,7 @@ const Projects = () => {
                     <MainProject 
                     direction='r'
                     image={Todo}
-                    title="Todo App"
+                    title="Todo"
                     />
                     <MainProject direction='r' />
                 </Stack>

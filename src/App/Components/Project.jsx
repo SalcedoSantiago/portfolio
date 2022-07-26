@@ -42,9 +42,9 @@ const Project = ({ image }) => {
                     <Heading
                         color="primary"
                         fontSize={'2xl'}
-                        fontWeight={600}
+                        // fontWeight={600}
                         py={4}
-                        fontFamily={"'Space Mono'"}
+                        fontFamily={"'PT Mono'"}
                     >
                         Halcyon Theme
                     </Heading>

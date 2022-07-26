@@ -7,20 +7,19 @@ const ImageProject = ({ image }) => {
         <Box
             w="50%"
             as='a'
+            h="100%"
             cursor={'pointer'}
             href="https://www.google.com"
             target={'_blank'}
             position={'relative'}
             transition="all .2s"
             _hover={{
-                transform: 'scale(1.03)'
+                // transform: 'scale(1.03)',
             }}
-            rounded="lg"
         >
             <Image
                 boxSize="100%"
                 src={image || Image_}
-                rounded="lg"
             />
             <Box
                 w="100%"
@@ -28,9 +27,8 @@ const ImageProject = ({ image }) => {
                 position={'absolute'}
                 top={0}
                 left={0}
-                bgColor={'black'}
-                mixBlendMode={'screen'}
-                rounded="lg"
+                bgColor={'#00000036'}
+                // mixBlendMode={'screen'}
             >
             </Box>
         </Box>

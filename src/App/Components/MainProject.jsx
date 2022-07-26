@@ -10,45 +10,43 @@ import Github from '../../Icons/github';
 import ImageProject from './project/Image'
 
 
-const MainProject = ({ direction = 'r', image, title }) => {
+const MainProject = ({ direction = 'r' }) => {
     return (
         <Stack
             direction={'row'}
-            spacing={'30px'}
+            spacing={7}
             justifyContent="space-between"
             align={'center'}
             textAlign={direction == 'r' ? 'start' : 'end'}
         >
             {
-                direction == 'l' && <ImageProject image={image} />
+                direction == 'l' && <ImageProject />
             }
             <Stack direction={'column'} w="50%">
-                <Text
-                    color={'primary'}
-                    fontSize="lg"
-                >
-                    Featured Project
-                </Text>
                 <Heading
                     pt={2}
-                    color="gray.300"
+                    color="primary"
                     fontSize={'3xl'}
                     textAlign={direction == 'r' ? 'start' : 'end'}
                     // pt={2}
                     fontWeight={600}
-                    fontFamily={"'Inter'"}
+                    fontFamily={"'PT Mono'"}
                 >
-                    {title || 'Pokedex App'}
+                    Pokedex App
                 </Heading>
+
                 <Text
-                    color={'gray.300'}
-                    fontSize="md"
+                    fontSize={'sm'}
+                    pb={4}
+                    color={'gray.400'}
+                >
+                    Website, App
+                </Text>
+                <Text
+                    color={'gray.200'}
+                    fontSize="sm"
                     lineHeight={"1.6em"}
                     pb={5}
-                    // bgColor='gray.900'
-                    // px={3}
-                    py={4}
-                    borderRadius={3}
                 >
                     A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.
                 </Text>
@@ -88,7 +86,7 @@ const MainProject = ({ direction = 'r', image, title }) => {
             </Stack>
 
             {
-                direction == 'r' && <ImageProject image={image} />
+                direction == 'r' && <ImageProject />
             }
         </Stack>
     )

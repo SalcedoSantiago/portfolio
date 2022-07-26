@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container } from '@chakra-ui/react';
+import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container, Divider } from '@chakra-ui/react';
 
 
 /**
@@ -25,6 +25,11 @@ const Footer = () => {
                 <Text
                     color={'gray.300'}
                     fontWeight="500"
+                    lineHeight={'35px'}
+                    letterSpacing='0.2px'
+                    fontSize={'18px'}
+                    textAlign='center'
+                    pb={'20px'}
                 >
                     Thanks for scrolling, that's all folks.
                 </Text>
@@ -45,14 +50,28 @@ const Footer = () => {
                 <Text
                     color={'gray.300'}
                     fontWeight="500"
+                    lineHeight={'35px'}
+                    letterSpacing='0.2px'
+                    fontSize={'18px'}
+                    textAlign='center'
+                    pt={3}
+                    cursor="pointer"
+                    transition={'al .2s '}
                 >
-                    Built by Santiago Salcedo
+                    Built by <Box as="a" color="primary">Santiago Salcedo</Box>
                 </Text>
                 <Text
                     color={'gray.300'}
                     fontWeight="500"
+                    lineHeight={'35px'}
+                    letterSpacing='0.2px'
+                    fontSize={'18px'}
+                    textAlign='center'
+                    pb={'20px'}
+                    cursor="pointer"
+                    transition={'al .2s '}
                 >
-                    Design inspired by Brittany Chiang's Portfolio
+                    Design inspired by <Box as="a" color="primary"> Brittany Chiang's </Box> Portfolio
                 </Text>
             </Stack>
         </Container>

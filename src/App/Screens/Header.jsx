@@ -2,8 +2,10 @@
  * External dependencies
  */
 import React from 'react'
-import { Container, Stack, Box, Link, Text, Button } from '@chakra-ui/react'
+import { Container, Stack, Box, Text, Button } from '@chakra-ui/react'
 import Hero from '../Components/Hero';
+import { Link as LinkR } from 'react-scroll'
+import styled from 'styled-components';
 
 /**
  * Internal dependencies
@@ -12,6 +14,17 @@ import Hero from '../Components/Hero';
 const Header = () => {
 
     const links = ['home', 'about', 'skills', 'projects', 'contact'];
+
+    const Link = styled(LinkR)`
+        text-decoration: none!important;
+        color:var(--chakra-colors-gray-200);
+        transition: all .2s;
+        letter-spacing: inherit;
+
+        &:hover{
+            color:var(--chakra-colors-primary);
+        }
+    `
 
     return (
         <Container maxW={'5xl'}>
@@ -26,33 +39,44 @@ const Header = () => {
                     direction={'row'}
                     spacing={'30px'}
                     align={'center'}
-                    
+
                 >
                     {links.map((link) =>
                         <Text
-                            as="a"
+                            // as="a"
                             textTransform={'capitalize'}
-                            fontSize="15px"
+                            fontSize="18px"
                             fontFamily={'Jost'}
                             cursor="pointer"
+                            letterSpacing={'0.20px'}
                             textDecor={'none'}
-                            fontWeight={700}
-                            color="gray.400"
+                            fontWeight={400}
+                            color="gray.300"
                             _hover={{
-                                color: 'gray.200'
+                                color: 'primary'
                             }}
                         >
-                            {link}
+                            <Link
+                                to={link}
+                                smooth={true}
+                                duration={500}
+                            >
+                                {link}
+                            </Link>
                         </Text >
                     )}
                     <Button
-                        px={4}
+                        as="a"
+                        href="mailto:santiagosalcedod@gmail.com"
+                        my={3}
+                        px={'30px'}
                         variant="primary"
-                        // colorScheme={'whatsapp'}
-                        // color="primary"
-                        borderRadius={2}
+                        borderRadius={'3px'}
+                        transition="all 0.2s ease"
+                        fontSize="16px"
+                        fontWeight={400}
                     >
-                        resume
+                        Resume
                     </Button>
                 </Stack>
             </Stack>

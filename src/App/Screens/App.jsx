@@ -29,22 +29,34 @@ const App = () => {
                 <Contact />
             </Container>
 
+
+
+
             <Box
-                transform={'rotate(0.25turn)'}
                 position="fixed"
-                bottom={'160px'}
+                bottom={'0'}
                 as="a"
                 color={'gray.300'}
                 cursor={'pointer'}
                 fontFamily="'Inter'"
-                right={0}
+                right={'0'}
             >
-                <Stack direction={'row'} align='center'>
-                    <Text display={'inline'}>
-                        santiagosalcedod@gmail.com
-                    </Text>
+                <Stack direction={'column'} justifyContent={'center'} align='center' spacing={6} flex={1}>
+                    <Box
+                        transform={'rotate(0.25turn)'}
+
+                    >
+                        <Text
+                        w="400px"
+
+                        >
+                            santiagosalcedod@gmail.com
+                        </Text>
+                    </Box>
+
                     <Divider
-                        w="50px"
+                        orientation='vertical'
+                        height="50px"
                     />
                 </Stack>
             </Box>
@@ -52,14 +64,14 @@ const App = () => {
 
             <Box
                 position="fixed"
-                bottom={'160px'}
+                bottom={'0'}
                 as="a"
                 color={'gray.300'}
                 cursor={'pointer'}
                 fontFamily="'Inter'"
                 left={'100px'}
             >
-                <Stack direction={'column'} justifyContent={'center'} align='center' spacing={6}>
+                <Stack direction={'column'} justifyContent={'center'} align='center' spacing={6} flex={1}>
                     <Box color={'gray.300'}>
                         <Linkedin />
                     </Box>
@@ -71,6 +83,7 @@ const App = () => {
                     </Box>
                     <Divider
                         orientation='vertical'
+                        height="100px"
                     />
                 </Stack>
             </Box>

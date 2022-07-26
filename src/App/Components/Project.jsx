@@ -19,13 +19,13 @@ const Project = ({ image }) => {
             bgColor={'gray.700'}
             textDecoration="none"
             pb={6}
-            // rounded="xl"
             shadow={'xl'}
             transition="all .2s ease-out"
             cursor={'pointer'}
             _hover={{
                 transform: "translateY(-1em)"
             }}
+            rounded="md"
         >
             {
                 image && <Image
@@ -33,15 +33,13 @@ const Project = ({ image }) => {
                 />
             }
             <Box
-                px={5}
-                py={3}
+                px={6}
+                py={4}
             >
-
                 <Stack direction={'row'} justifyContent='space-between'>
                     <Heading
-                        color="primary"
+                        color="gray.100"
                         fontSize={'2xl'}
-                        // fontWeight={600}
                         py={4}
                         fontFamily={"'PT Mono'"}
                     >
@@ -76,7 +74,7 @@ const Project = ({ image }) => {
                 </Stack>
                 <Text
                     fontSize={'sm'}
-                    color={'white'}
+                    color={'gray.300'}
                     pb={7}
                 >
                     A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace.

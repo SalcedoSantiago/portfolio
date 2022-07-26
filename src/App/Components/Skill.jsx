@@ -13,14 +13,16 @@ const Skill = ({ text, image = '' }) => {
         <Stack
             direction={'row'}
             spacing={3}
-            bgColor={'#3b3f57'}
-            shadow={'xl'}
+            bgColor={'gray.700'}
             w="auto"
             minW={'150px'}
             py={4}
             px={6}
             rounded="xl"
             alignItems={'center'}
+            color="gray.300"
+            shadow={'xl'}
+            fontWeight={500}
         >
             <Image
                 // objectFit={'cover'}
@@ -28,8 +30,6 @@ const Skill = ({ text, image = '' }) => {
                 src={image || 'https://cdn-icons-png.flaticon.com/512/732/732212.png'}
             />
             <Text
-                // fontWeight={600}
-                // fontFamily={"'Space Mono'"}
                 fontSize={'sm'}
             >
                 {text}

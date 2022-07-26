@@ -23,30 +23,41 @@ const MainProject = ({ direction = 'r' }) => {
                 direction == 'l' && <ImageProject />
             }
             <Stack direction={'column'} w="50%">
-                <Heading
-                    pt={2}
-                    color="primary"
-                    fontSize={'3xl'}
-                    textAlign={direction == 'r' ? 'start' : 'end'}
-                    // pt={2}
-                    fontWeight={600}
-                    fontFamily={"'PT Mono'"}
+                <Box
+                    as="a"
+                    href="htpps://www.google.com"
+                    target="_blank"
                 >
-                    Pokedex App
-                </Heading>
+                    <Heading
+                        pt={2}
+                        color="gray.200"
+                        fontSize={'3xl'}
+                        textAlign={direction == 'r' ? 'start' : 'end'}
+                        fontWeight={600}
+                        fontFamily={"'PT Mono'"}
+                        _hover={{
+                            color: 'primary'
+                        }}
+                    >
+                        Pokedex App
+                    </Heading>
+                </Box>
 
                 <Text
                     fontSize={'sm'}
-                    pb={4}
-                    color={'gray.400'}
+                    pb={2}
+                    color={'gray.500'}
                 >
                     Website, App
                 </Text>
                 <Text
-                    color={'gray.200'}
+                    color={'gray.300'}
                     fontSize="sm"
-                    lineHeight={"1.6em"}
-                    pb={5}
+                    // lineHeight={"1.6em"}
+                    // pb={5}
+                    lineHeight={'35px'}
+                    letterSpacing='0.2px'
+                    pb={'20px'}
                 >
                     A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.
                 </Text>
@@ -54,9 +65,8 @@ const MainProject = ({ direction = 'r' }) => {
                 <Stack
                     direction={'row'}
                     align={'center'}
-                    pt={4}
+                    pt={2}
                     justifyContent={direction == 'r' ? 'start' : 'end'}
-
                 >
                     <Box
                         cursor={'pointer'}

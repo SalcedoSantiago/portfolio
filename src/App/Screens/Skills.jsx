@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container, Badge, Divider } from '@chakra-ui/react';
+import { Element } from 'react-scroll'
 
 
 /**
@@ -92,98 +93,104 @@ const Skills = () => {
     ]
 
 
-
     return (
-        <Box
-            py={'60px'}
-            px={'90px'}
+        <Element
+            name='skills'
         >
-            {/* <Divider /> */}
-            <Heading
-                px={6}
-                fontFamily={'Inter'}
-                textAlign={'center'}
-                color="white"
-            >Skills</Heading>
-            {/* <Divider /> */}
-            <Text
-                py={6}
-                color={'gray.300'}
-                textAlign='center'
+            <Box
+                py={'60px'}
+                px={'90px'}
             >
-                Here are a few technologies I've been working with recently:
-            </Text>
+                {/* <Divider /> */}
+                <Heading
+                    fontSize={'5xl'}
+                    color="gray.100"
+                    textAlign={'center'}
+                >Skills</Heading>
+                {/* <Divider /> */}
+                <Text
+                    lineHeight={'35px'}
+                    letterSpacing='0.2px'
+                    fontSize={'18px'}
+                    textAlign='center'
+                    color="gray.300"
+                    pb={'20px'}
+                    pt={3}
+                >
+                    Here are a few technologies I've been working with recently:
+                </Text>
 
-            <Stack direction={'column'} py={3} spacing={'35px'}>
-                <Box>
-                    <Heading
-                        color={'gray.100'}
-                        fontSize={'lg'}
-                        fontWeight={600}
-                        py={4}
-                    >
-                        Programming Lenguaje
-                    </Heading>
-                    <Stack direction={'row'} spacing={2}>
-                        {Lenguaje.map(({ title, image }, index) =>
-                            <Skill
-                                key={index}
-                                text={title}
-                                image={image}
-                            />
+                <Stack direction={'column'} py={3} spacing={'35px'}>
+                    <Box>
+                        <Heading
+                            color={'gray.200'}
+                            fontSize={'xl'}
+                            fontWeight={600}
+                            py={5}
+                        >
+                            Programming Lenguaje
+                        </Heading>
+                        <Stack direction={'row'} spacing={2}>
+                            {Lenguaje.map(({ title, image }, index) =>
+                                <Skill
+                                    key={index}
+                                    text={title}
+                                    image={image}
+                                />
 
-                        )}
-                    </Stack>
-                </Box>
-            </Stack>
+                            )}
+                        </Stack>
+                    </Box>
+                </Stack>
 
 
-            <Stack direction={'column'} py={3} spacing={'35px'}>
-                <Box>
-                    <Heading
-                        color={'gray.100'}
-                        fontSize={'lg'}
-                        fontWeight={600}
-                        py={4}
-                    >
-                        Libraries & Frameworks
-                    </Heading>
-                    <Flex direction={'row'} gap={2} wrap={'wrap'} >
-                        {Libraries.map(({ title, image }, index) =>
-                            <Skill
-                                key={index}
-                                text={title}
-                                image={image}
-                            />
-                        )}
-                    </Flex>
-                </Box>
-            </Stack>
-            <Stack direction={'column'} py={3} spacing={'35px'}>
-                <Box>
-                    <Heading
-                        color={'gray.100'}
-                        fontSize={'lg'}
-                        fontWeight={600}
-                        py={4}
-                    >
-                        Tools & Platforms
-                    </Heading>
-                    <Flex direction={'row'} gap={2} wrap={'wrap'} >
-                        {Tools.map(({ title, image }, index) =>
-                            <Skill
-                                key={index}
-                                text={title}
-                                image={image}
+                <Stack direction={'column'} py={3} spacing={'35px'}>
+                    <Box>
+                        <Heading
+                            color={'gray.200'}
+                            fontSize={'xl'}
+                            fontWeight={600}
+                            py={5}
+                        >
+                            Libraries & Frameworks
+                        </Heading>
+                        <Flex direction={'row'} gap={2} wrap={'wrap'} >
+                            {Libraries.map(({ title, image }, index) =>
+                                <Skill
+                                    key={index}
+                                    text={title}
+                                    image={image}
+                                />
+                            )}
+                        </Flex>
+                    </Box>
+                </Stack>
+                <Stack direction={'column'} py={3} spacing={'35px'}>
+                    <Box>
+                        <Heading
+                            color={'gray.200'}
+                            fontSize={'xl'}
+                            fontWeight={600}
+                            py={5}
+                        >
+                            Tools & Platforms
+                        </Heading>
+                        <Flex direction={'row'} gap={2} wrap={'wrap'} >
+                            {Tools.map(({ title, image }, index) =>
+                                <Skill
+                                    key={index}
+                                    text={title}
+                                    image={image}
 
-                            />
+                                />
 
-                        )}
-                    </Flex>
-                </Box>
-            </Stack>
+                            )}
+                        </Flex>
+                    </Box>
+                </Stack>
 
-        </Box>
+            </Box>
+        </Element>
     )
 }
 

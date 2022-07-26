@@ -8,18 +8,17 @@ export const ButtonStyles = {
             bg: "transparent",
             borderColor: "primary",
             borderWidth: "1px",
+            borderRadius: '3px',
+            py: 6,
+            px: 2,
             borderStyled: "solid",
+            fontFamily: "'Karla'",
             color: "primary",
             _hover: {
-                // color: "slate",
-                // bg: "primary",
-                transform: "scale(1.1)"
+                bg: "rgba(100,255,218,0.1)",
             }
         }
     },
     defaultProps: {
-        // size: 'lg', // default is md
-        // variant: 'sm', // default is solid
-        // colorScheme: 'green', // default is gray
     },
 }

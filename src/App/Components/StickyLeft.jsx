@@ -12,17 +12,17 @@ const StickyLeft = () => {
     return (
         <Box
             position="fixed"
-            bottom={'0'}
+            bottom={'0px'}
             as="a"
             color={'gray.300'}
             cursor={'pointer'}
             fontFamily="'Inter'"
-            left={'100px'}
+            left={'40px'}
         >
             <Stack direction={'column'} justifyContent={'center'} align='center' spacing={6} flex={1}>
                 <Box
                     as="a"
-                    href='https://www.linkedin.com'
+                    href='https://wa.me/541125709209?text=Hello!'
                     target={'_blank'}
                     color="gray.400"
                     cursor={'pointer'}
@@ -35,7 +35,7 @@ const StickyLeft = () => {
                 </Box>
                 <Box
                     as="a"
-                    href='https://www.linkedin.com'
+                    href='https://github.com/SalcedoSantiago'
                     target={'_blank'}
                     color="gray.400"
                     cursor={'pointer'}
@@ -49,7 +49,7 @@ const StickyLeft = () => {
 
                 <Box
                     as="a"
-                    href='https://www.linkedin.com'
+                    href='https://www.linkedin.com/in/santiago-dalmiro-salcedo/'
                     target={'_blank'}
                     color="gray.400"
                     cursor={'pointer'}
@@ -62,7 +62,7 @@ const StickyLeft = () => {
                 </Box>
                 <Box
                     as="a"
-                    href='https://www.linkedin.com'
+                    href="mailto:santiagosalcedod@gmail.com"
                     target={'_blank'}
                     color="gray.400"
                     cursor={'pointer'}

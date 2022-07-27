@@ -2,7 +2,7 @@
  * External dependencies
  */
 import React from 'react'
-import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container, Badge, Divider } from '@chakra-ui/react';
+import { Stack, Text, Box, Image, Heading, Flex, Button, Container, Badge, Divider } from '@chakra-ui/react';
 import { Element } from 'react-scroll'
 
 
@@ -10,7 +10,6 @@ import { Element } from 'react-scroll'
  * Internal dependencies
  */
 
-import Html from '../../Icons/html';
 import Skill from '../Components/Skill';
 
 

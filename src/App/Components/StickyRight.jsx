@@ -8,7 +8,7 @@ const StickyRight = () => {
         color:var(--chakra-colors-gray-200);
         transition: all .2s;
         letter-spacing: inherit;
-
+        writing-mode: vertical-rl;
         &:hover{
             color:var(--chakra-colors-primary);
         }
@@ -18,31 +18,28 @@ const StickyRight = () => {
     return (
         <Box
             position="fixed"
-            bottom={'120px'}
+            bottom={'0px'}
             color={'gray.300'}
             cursor={'pointer'}
-            right={'0'}
+            w="40px"
+            right={'40px'}
         >
             <Stack direction={'column'} justifyContent={'center'} align='center' spacing={6} flex={1}>
-                <Box
-                    transform={'rotate(0.25turn)'}
-                    w="400px"
+                <TextLink
+                    color="gray.300"
+                    _hover={{
+                        color: 'primary'
+                    }}
+                    fontWeight={600}
+                    as="a"
+                    href="mailto:santiagosalcedod@gmail.com"
+                    writingMode={'vertical-rl'}
                 >
-                    <TextLink
-                        color="gray.300"
-                        _hover={{
-                            color: 'primary'
-                        }}
-                        fontWeight={600}
-                        as="a"
-                    >
-                        santiagosalcedod@gmail.com
-                    </TextLink>
-                </Box>
-
+                    santiagosalcedod@gmail.com
+                </TextLink>
                 <Divider
                     orientation='vertical'
-                    height="50px"
+                    height="100px"
                 />
             </Stack>
         </Box>

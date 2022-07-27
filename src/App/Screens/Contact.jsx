@@ -38,8 +38,10 @@ const Contact = () => {
                     fontSize={'18px'}
                     color="gray.300"
                     pb={'30px'}
-                >
-                    Although I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+                >Here is the list of projects I do personally.
+                    from the new to the old. most were created to learn technologies and tools
+                    new. <br />
+                    Whether you have a question or just want to say hi, I’ll try my best to get back to you!
                 </Text>
 
                 <Flex py={2} gap={2}>

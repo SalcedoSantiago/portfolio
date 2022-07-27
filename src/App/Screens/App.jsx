@@ -1,8 +1,8 @@
 /**
  * External dependencies
  */
-import React from 'react';
-import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container, Divider } from '@chakra-ui/react';
+import React, { useState, useEffect } from 'react';
+import { Box, Container, } from '@chakra-ui/react';
 /**
  * Internal dependencies
  */
@@ -21,6 +21,24 @@ import StickyRight from '../Components/StickyRight';
 
 
 const App = () => {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoaded(true);
+        }, 1000);
+    }, [])
+
+
+    if (!loaded) {
+
+        return (
+            <Box>
+                loading
+            </Box>
+        )
+
+    }
+
     return (
         <Box minH={'100vh'}>
             <Header />

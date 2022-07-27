@@ -20,8 +20,6 @@ import Store from '../../assets/store.jpg'
 
 const Projects = () => {
 
-
-
     const mainProjects = [
         {
             title: 'Pokedex',
@@ -40,7 +38,56 @@ const Projects = () => {
         }
     ]
 
-
+    const miniProjects = [
+        {
+            title: 'Store Coder',
+            desc: 'is a store created for the coderhouse course,the store has pages and products.it is made with html, css, scss, and js.',
+            link: 'https://salcedosantiago.github.io/store-coder/',
+            repo: 'https://github.com/SalcedoSantiago/store-coder'
+        },
+        {
+            title: 'Travel',
+            desc: 'Travel is a landing page designed by https://www.arshakir.com/ this page was made with react, chakra ui and styledComponents.',
+            link: '',
+            repo: 'https://github.com/SalcedoSantiago/travel'
+        },
+        {
+            title: 'Portfolio v1',
+            desc: 'this was my first portfolio, i created it in 2019 and it was my beginnings in web development was created with html, js, jquery & css',
+            link: 'https://salcedosantiago.github.io/Mi-portafolio/',
+            repo: 'https://github.com/SalcedoSantiago/Mi-portafolio'
+        },
+        {
+            title: 'Blog cafe',
+            desc: 'It was a project that Juan Pablo De la Torre Valdez included in the web development course.',
+            link: 'https://salcedosantiago.github.io/blog-cafe/',
+            repo: 'https://github.com/SalcedoSantiago/blog-cafe'
+        },
+        {
+            title: 'Freelancer',
+            desc: 'It was a project that Juan Pablo De la Torre Valdez included in the web development course.',
+            link: 'https://salcedosantiago.github.io/freelancer/',
+            repo: 'https://github.com/SalcedoSantiago/freelancer'
+        },
+        {
+            title: 'Frontend',
+            desc: 'It was a project that Juan Pablo De la Torre Valdez included in the web development course.',
+            link: 'https://salcedosantiago.github.io/frontend/',
+            repo: 'https://github.com/SalcedoSantiago/frontend'
+        },
+        {
+            title: 'Bienes Raices',
+            desc: 'It was a project that Juan Pablo De la Torre Valdez included in the web development course.',
+            link: 'https://salcedosantiago.github.io/bienes-raices/',
+            repo: 'https://github.com/SalcedoSantiago/bienes-raices'
+        },
+        {
+            title: 'Viajes',
+            desc: 'It was a project that Juan Pablo De la Torre Valdez included in the web development course.',
+            link: 'https://salcedosantiago.github.io/viajes/',
+            repo: 'https://github.com/SalcedoSantiago/viajes'
+        },
+    ]
 
 
 
@@ -72,10 +119,11 @@ const Projects = () => {
                         color="gray.300"
                         pb={'80px'}
                         pt={3}
+                        maxW='800px'
+                        mx="auto"
                         px={'50px'}
                     >
-                        This page contains a list of my work, from Design case studies, to experimental hobby projects, to instances when I went ham and to hackathons.
-                        This is not fully complete now, but here is a overlook of what I used to get this site up and running.
+                        Here is the list of projects I do personally. from the new to the old. most were created to learn technologies and tools new.
                     </Text>
                     <Stack
                         direction={'column'}
@@ -110,12 +158,17 @@ const Projects = () => {
                         gap={7}
                         py={6}
                     >
-                        <Project />
-                        <Project />
-                        <Project />
-                        <Project />
-                        <Project />
-
+                        {
+                            miniProjects.map(({ title, desc, link, repo }, index) =>
+                                <Project
+                                    key={index}
+                                    title={title}
+                                    link={link}
+                                    desc={desc}
+                                    repo={repo}
+                                />
+                            )
+                        }
                     </Flex>
                 </Box>
             </Stack>

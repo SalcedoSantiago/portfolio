@@ -73,31 +73,35 @@ const About = () => {
                     <Box
                         lineHeight={'35px'}
                         letterSpacing='0.2px'
+                        maxW={'800px'}
                         fontSize={'18px'}
+                        textAlign='center'
                         color="gray.300"
                     >
                         <Text
                             py={2}
                         >
-                            I used to <Box as='span' color="primary"> make </Box>make Android applications which can still be found on <Box as='span' fontWeight={600} color="secondary">PlayStore</Box> until 2017. Post that I found web to be more exciting and have shifted my focus to it since then. I have created multiple web applications / websites using different technologies for a vast number of clients.
+                            I started in the world of development in 2018 or so, and since I met him I have never stopped learn, I have a deep love to learn something new.
                         </Text>
                         <Text
                             py={2}
                         >
-                            My main focus these days is <Box as='span' color="primary">shipping</Box> great products, becoming a better developer and growing a career in tech.
+                            I don't give up easily and always try to reach my goals.
+                            I am currently working on @Quadlayers as a Full Stack Developer.
+                            currently i created several applications using different technologies for tried to learn new things
                         </Text>
                         <Text
                             lineHeight={'35px'}
                             py={2}
                         >
-                            Currently I'm a UI Developer @ Media.net where I work on various applications under Forbes, primarily on Advisor (US and UK), Wheels, Homes and Health WordPress applications.
+                            My current goal is to dedicate myself to the Front End.
                         </Text>
                     </Box>
 
                     <Stack py={7} mt="50px" direction={'row'} justifyContent={'center'} align='center' spacing={6}>
                         <Box
                             as="a"
-                            href='https://www.linkedin.com'
+                            href='https://wa.me/541125709209?text=Hello!'
                             target={'_blank'}
                             color="gray.400"
                             cursor={'pointer'}
@@ -110,7 +114,7 @@ const About = () => {
                         </Box>
                         <Box
                             as="a"
-                            href='https://www.linkedin.com'
+                            href='https://github.com/SalcedoSantiago'
                             target={'_blank'}
                             color="gray.400"
                             cursor={'pointer'}
@@ -124,7 +128,7 @@ const About = () => {
 
                         <Box
                             as="a"
-                            href='https://www.linkedin.com'
+                            href='https://www.linkedin.com/in/santiago-dalmiro-salcedo/'
                             target={'_blank'}
                             color="gray.400"
                             cursor={'pointer'}
@@ -143,6 +147,7 @@ const About = () => {
                             bgColor={'gray.600'}
                             color="gray.400"
                             p={2}
+                            href="mailto:santiagosalcedod@gmail.com"
                             px={3}
                             borderRadius="6px"
                             borderWidth="1px"

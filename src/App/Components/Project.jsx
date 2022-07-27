@@ -2,17 +2,17 @@
  * External dependencies
  */
 import React from 'react'
-import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container, Badge } from '@chakra-ui/react';
+import { Stack as Stack, Link, Text, Box, Image, Heading, Flex, Button, Container, Badge } from '@chakra-ui/react';
 import Github from '../../Icons/github';
 import { ExternalLinkIcon } from '@chakra-ui/icons'
+import styled from 'styled-components';
 
-const Project = ({ image }) => {
-
+const Project = ({ desc, title, link, repo }) => {
 
     return (
         <Stack
             as="a"
-            href='https://www.google.com'
+            href={link ? link : repo ? repo : ''}
             target={'_blank'}
             w={'calc(33% - 1rem)'}
             direction={'column'}
@@ -27,11 +27,6 @@ const Project = ({ image }) => {
             }}
             rounded="md"
         >
-            {
-                image && <Image
-                    src={image}
-                />
-            }
             <Box
                 px={6}
                 py={4}
@@ -42,48 +37,52 @@ const Project = ({ image }) => {
                         fontSize={'2xl'}
                         py={4}
                         fontFamily={"'PT Mono'"}
+                        className="custom-heading"
+                        textDecoration={'none'}
                     >
-                        Halcyon Theme
+                        {title}
                     </Heading>
                     <Stack direction={'row'} justifyContent='end' align={'center'}>
-                        <Box
-                            cursor={'pointer'}
-                            as="a"
-                            href='https://www.google.com'
-                            target={'_blank'}
-                            color="gray.400"
-                            _hover={{
-                                color: 'primary'
-                            }}
-                        >
-                            <ExternalLinkIcon />
-                        </Box>
-                        <Box
-                            cursor={'pointer'}
-                            as="a"
-                            href='https://www.google.com'
-                            target={'_blank'}
-                            color="gray.400"
-                            _hover={{
-                                color: 'primary'
-                            }}
-                        >
-                            <Github />
-                        </Box>
+                        {link &&
+                            <Box
+                                cursor={'pointer'}
+                                as="a"
+                                href={link}
+                                target={'_blank'}
+                                color="gray.400"
+                                _hover={{
+                                    color: 'primary'
+                                }}
+                            >
+                                <ExternalLinkIcon />
+                            </Box>
+                        }
+
+
+                        {repo &&
+                            <Box
+                                cursor={'pointer'}
+                                as="a"
+                                href={repo}
+                                target={'_blank'}
+                                color="gray.400"
+                                _hover={{
+                                    color: 'primary'
+                                }}
+                            >
+                                <Github />
+                            </Box>
+                        }
                     </Stack>
                 </Stack>
                 <Text
                     fontSize={'sm'}
                     color={'gray.300'}
-                    pb={7}
+                    pb={1}
                 >
-                    A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace.
+                    {desc}
                 </Text>
-                <Stack direction={'row'}>
-                    <Badge colorScheme={'blue'}>html</Badge>
-                    <Badge colorScheme={'blue'}>css</Badge>
-                    <Badge colorScheme={'blue'}>JS</Badge>
-                </Stack>
+
             </Box>
         </Stack>
     )

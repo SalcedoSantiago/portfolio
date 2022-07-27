@@ -2,10 +2,11 @@
  * External dependencies
  */
 import React from 'react'
-import { Stack, Link, Text, Box, Heading, Image, Flex, Button, Container, Divider } from '@chakra-ui/react';
+import { Stack, Text, Box, Heading, Image, Flex, Button, Container, Divider } from '@chakra-ui/react';
 import { Element } from 'react-scroll'
 import { Link as LinkR } from 'react-scroll'
 import styled from 'styled-components';
+import { Link } from 'react-scroll'
 
 /**
  * League Spartannal dependencies
@@ -84,7 +85,13 @@ const Hero = () => {
                                     fontSize="16px"
                                     fontWeight={400}
                                 >
-                                    Get in touch
+                                    <Link
+                                        to={'contact'}
+                                        smooth={true}
+                                        duration={500}
+                                    >
+                                        Get in touch
+                                    </Link>
                                 </Button>
                             </Flex>
                             <Stack direction={'row'} spacing="30px" pt={20}>

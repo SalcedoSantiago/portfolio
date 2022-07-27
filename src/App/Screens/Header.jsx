@@ -39,7 +39,6 @@ const Header = () => {
                     direction={'row'}
                     spacing={'30px'}
                     align={'center'}
-
                 >
                     {links.map((link) =>
                         <Text

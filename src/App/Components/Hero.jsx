@@ -2,34 +2,30 @@
  * External dependencies
  */
 import React from 'react'
-import { Stack, Link, Text, Box, Heading, Image, Flex, Button, Container } from '@chakra-ui/react';
+import { Stack, Link, Text, Box, Heading, Image, Flex, Button, Container, Divider } from '@chakra-ui/react';
 import { Element } from 'react-scroll'
+import { Link as LinkR } from 'react-scroll'
+import styled from 'styled-components';
 
 /**
  * League Spartannal dependencies
  */
 
-
 import Me from '../../assets/yo.png'
-
 
 const Hero = () => {
 
-    // const Text = styled(ChakraText)`
-    //     word-spacing: 1.7px;
-    //     color: var(--chakra-colors-gray-400);
-    //     letter-spacing: 0.7px;
-    //     font-weight: 400;
-    //     font-size: 18px;
-    //     .featured{
-    //         color :var(--chakra-colors-primary)
-    //     }
-    // `
+    const Link = styled(LinkR)`
+        text-decoration: none!important;
+        color:var(--chakra-colors-gray-200);
+        transition: all .2s;
+        letter-spacing: inherit;
 
-    // color = "gray.400"
-    // fontSize = "18px"
-    // lineHeight = { '1.3'}
-    // wordSpacing = { '1.7px'}
+        &:hover{
+            color:var(--chakra-colors-primary);
+        }
+    `
+
     return (
         <Element
             name="home"
@@ -91,7 +87,62 @@ const Hero = () => {
                                     Get in touch
                                 </Button>
                             </Flex>
+                            <Stack direction={'row'} spacing="30px" pt={20}>
+                                <Link
+                                    to="projects"
+                                    smooth={true}
+                                    duration={500}
+                                >
+                                    <Box
+                                        cursor="pointer"
+                                        _hover={{
+                                            color: 'primary'
+                                        }}
+                                    >
+                                        <Heading
+                                            fontSize="lg"
+                                            pb={2}
+                                        >Projects</Heading>
+                                        <Text
+                                            fontSize="xs"
+                                            color="gray.300"
+                                        >
+                                            Mobile application desing <br />
+                                            Website design <br />
+                                            Logo & Branding design.
+                                        </Text>
+                                    </Box>
+                                </Link>
 
+                                <Divider orientation='vertical' h="80px" />
+                                <Link
+                                    to="about"
+                                    smooth={true}
+                                    duration={500}
+                                >
+                                    <Box
+                                        cursor="pointer"
+                                        _hover={{
+                                            color: 'primary'
+                                        }}
+                                        pl={3}
+                                    >
+                                        <Heading
+                                            fontSize="lg"
+                                            pb={2}
+                                        >About me</Heading>
+                                        <Text
+                                            fontSize="xs"
+                                            color="gray.300"
+                                        >
+                                            Mobile application desing <br />
+                                            Website design <br />
+                                            Logo & Branding design.
+                                        </Text>
+                                    </Box>
+                                </Link>
+
+                            </Stack>
                         </Stack>
                     </Box>
                     <Box position={'relative'} w="35%">
@@ -115,7 +166,7 @@ const Hero = () => {
                     </Box>
                 </Stack>
             </Stack>
-        </Element>  
+        </Element>
     )
 }
 

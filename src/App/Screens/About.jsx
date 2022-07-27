@@ -11,10 +11,6 @@ import { Element } from 'react-scroll'
  * External dependencies
  */
 
-import devs from '../../assets/dev.png'
-import Linkedin from '../../Icons/linkedin';
-import Github from '../../Icons/github';
-import Email from '../../Icons/email';
 
 const About = () => {
 

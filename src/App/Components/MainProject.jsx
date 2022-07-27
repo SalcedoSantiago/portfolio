@@ -10,7 +10,7 @@ import Github from '../../Icons/github';
 import ImageProject from './project/Image'
 
 
-const MainProject = ({ direction = 'r' }) => {
+const MainProject = ({ direction = 'r', image, desc, title }) => {
     return (
         <Stack
             direction={'row'}
@@ -20,7 +20,7 @@ const MainProject = ({ direction = 'r' }) => {
             textAlign={direction == 'r' ? 'start' : 'end'}
         >
             {
-                direction == 'l' && <ImageProject />
+                direction == 'l' && <ImageProject image={image} />
             }
             <Stack direction={'column'} w="50%">
                 <Box
@@ -39,7 +39,7 @@ const MainProject = ({ direction = 'r' }) => {
                             color: 'primary'
                         }}
                     >
-                        Pokedex App
+                        {title}
                     </Heading>
                 </Box>
 
@@ -52,14 +52,15 @@ const MainProject = ({ direction = 'r' }) => {
                 </Text>
                 <Text
                     color={'gray.300'}
-                    fontSize="sm"
+                    fontSize="md"
                     // lineHeight={"1.6em"}
                     // pb={5}
-                    lineHeight={'35px'}
-                    letterSpacing='0.2px'
+                    lineHeight={'25px'}
+                    // letterSpacing='0.2px'
                     pb={'20px'}
                 >
-                    A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.
+                    {desc}
+                    {/* A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm. */}
                 </Text>
 
                 <Stack
@@ -96,7 +97,7 @@ const MainProject = ({ direction = 'r' }) => {
             </Stack>
 
             {
-                direction == 'r' && <ImageProject />
+                direction == 'r' && <ImageProject image={image} />
             }
         </Stack>
     )

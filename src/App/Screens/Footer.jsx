@@ -2,7 +2,8 @@
  * External dependencies
  */
 import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container, Divider } from '@chakra-ui/react';
-
+import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa'
+import { MdOutlineMail } from 'react-icons/md';
 
 /**
  * Internal dependencies
@@ -34,16 +35,59 @@ const Footer = () => {
                     Thanks for scrolling, that's all folks.
                 </Text>
 
-                <Stack direction={'row'} justifyContent={'center'} align='center' spacing={6}>
-                    <Box>
-                        <Linkedin />
+                <Stack direction={'row'} justifyContent={'center'} align='center' spacing={6} pb={3}>
+                    <Box
+                        as="a"
+                        href='https://www.linkedin.com'
+                        target={'_blank'}
+                        color="gray.400"
+                        cursor={'pointer'}
+                        fontSize={'24px'}
+                        _hover={{
+                            color: 'primary'
+                        }}
+                    >
+                        <FaWhatsapp />
                     </Box>
-                    <Box>
-                        <Github />
+                    <Box
+                        as="a"
+                        href='https://www.linkedin.com'
+                        target={'_blank'}
+                        color="gray.400"
+                        cursor={'pointer'}
+                        fontSize={'24px'}
+                        _hover={{
+                            color: 'primary'
+                        }}
+                    >
+                        <FaGithub />
                     </Box>
 
-                    <Box>
-                        <Email />
+                    <Box
+                        as="a"
+                        href='https://www.linkedin.com'
+                        target={'_blank'}
+                        color="gray.400"
+                        cursor={'pointer'}
+                        fontSize={'24px'}
+                        _hover={{
+                            color: 'primary'
+                        }}
+                    >
+                        <FaLinkedinIn />
+                    </Box>
+                    <Box
+                        as="a"
+                        href='https://www.linkedin.com'
+                        target={'_blank'}
+                        color="gray.400"
+                        cursor={'pointer'}
+                        fontSize={'24px'}
+                        _hover={{
+                            color: 'primary'
+                        }}
+                    >
+                        <MdOutlineMail />
                     </Box>
                 </Stack>
 

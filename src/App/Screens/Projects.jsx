@@ -15,10 +15,35 @@ import { Element } from 'react-scroll'
 
 import Pokedex from '../../assets/pokedex.jpg'
 import Todo from '../../assets/todo.jpg'
-
+import Store from '../../assets/store.jpg'
 
 
 const Projects = () => {
+
+
+
+    const mainProjects = [
+        {
+            title: 'Pokedex',
+            image: Pokedex,
+            desc: 'Pokedex app is an application that consumes the pokeapi api, it shows more than 900 pokemons, it allows you to select the pokemons and see what their main characteristics are.'
+        },
+        {
+            title: 'Todo App',
+            image: Todo,
+            desc: 'TodoApp is an application made in react, which is designed to make task lists. allows you to edit and move each one. It also allows you to customize the colors of each "card".'
+        },
+        {
+            title: 'Store App',
+            image: Store,
+            desc: 'It is a store, which allows you to simulate purchases of paintings, it has a cart that has to edit the quantity that is going to be purchased, it also contains filters that allow you to order them from lower and higher prices.'
+        }
+    ]
+
+
+
+
+
     return (
         <Element
             name='projects'
@@ -57,17 +82,14 @@ const Projects = () => {
                         py={6}
                         spacing={'50px'}
                     >
-                        <MainProject
-                            image={Pokedex}
-                            direction='r'
-                            title={'Pokedex'}
-                        />
-                        <MainProject
-                            direction='r'
-                            image={Todo}
-                            title="Todo"
-                        />
-                        <MainProject direction='r' />
+                        {mainProjects.map(({ title, desc, image }) =>
+                            <MainProject
+                                image={image}
+                                direction='r'
+                                desc={desc}
+                                title={title}
+                            />
+                        )}
                     </Stack>
                 </Box>
 

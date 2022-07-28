@@ -18,6 +18,7 @@ import Github from '../../Icons/github';
 import Email from '../../Icons/email';
 import StickyLeft from '../Components/StickyLeft';
 import StickyRight from '../Components/StickyRight';
+import Hero from '../Components/Hero';
 
 
 const App = () => {
@@ -42,7 +43,11 @@ const App = () => {
     return (
         <Box minH={'100vh'}>
             <Header />
-            <Container maxW={'5xl'}>
+            <Container
+                maxW={'5xl'}
+                px={['40px', '40px', 0]}
+            >
+                <Hero />
                 <About />
                 <Skills />
                 <Projects />

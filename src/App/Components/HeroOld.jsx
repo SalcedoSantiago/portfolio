@@ -41,9 +41,6 @@ const HeroOld = () => {
                 <Box maxW={'600px'} pt={3}>
                     <Text
                         fontWeight={400}
-                        // letterSpacing="wide"
-                        // fontSize={}
-                        // color="w"
                         lineHeight={'tall'}
                     >
                         I'm a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products at Upstatement.
@@ -61,7 +58,7 @@ const HeroOld = () => {
                     </Button>
                 </Box>
 
-               
+
             </Stack>
         </Stack>
     )

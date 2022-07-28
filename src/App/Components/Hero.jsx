@@ -35,29 +35,45 @@ const Hero = () => {
                 direction={'column'}
                 justifyContent={'center'}
                 minH={['auto', 'auto', '75vh']}
+                pt={['20vh', '20vh', 0]}
             >
-                <Stack direction={['column', 'column', 'row']} spacing={6} align='start' justifyContent={'space-between'}>
-                    <Box w={['100%', '100%', "60%"]} py={4}>
+                <Stack direction={['column', 'column', 'row']} spacing={6} align={['center', 'center', 'start']} justifyContent={'space-between'}>
+                    <Box w={['100%', '100%', "60%"]} py={['70px', 10, 4]}>
                         <Stack direction={'column'} spacing={0}>
                             <Heading
                                 as="h1"
                                 fontWeight={600}
                                 color="gray.300"
-                                fontSize="4xl"
+                                textAlign={[
+                                    'centstarter',
+                                    'start',
+                                    'start'
+                                ]}
+                                fontSize={['2xl', '2xl', '4xl']}
                             >
                                 Hello, i am
                             </Heading>
                             <Heading
                                 as="h1"
                                 fontWeight={700}
-                                fontSize="7xl"
+                                fontSize={['5xl', '5xl', '7xl']}
+                                textAlign={[
+                                    'start',
+                                    'start',
+                                    'start'
+                                ]}
                             >
                                 Santiago Salcedo
                             </Heading>
                             <Heading
                                 fontWeight={600}
-                                fontSize="4xl"
+                                fontSize={['2xl', '2xl', '4xl']}
                                 color={'primary'}
+                                textAlign={[
+                                    'start',
+                                    'start',
+                                    'start'
+                                ]}
                             >
                                 Front-end Developer
                             </Heading>
@@ -67,6 +83,11 @@ const Hero = () => {
                                 color="gray.300"
                                 letterSpacing='0.2px'
                                 maxW={'550px'}
+                                textAlign={[
+                                    'start',
+                                    'start',
+                                    'start'
+                                ]}
                                 fontSize="18px"
                             >
                                 <Text pb={2}>
@@ -74,7 +95,11 @@ const Hero = () => {
                                 </Text>
                             </Box>
 
-                            <Flex py={2} gap={2}>
+                            <Flex
+                                py={2}
+                                gap={2}
+                                justifyContent={['center', 'center', 'start']}
+                            >
                                 <Button
                                     my={3}
                                     px={'50px'}
@@ -83,6 +108,8 @@ const Hero = () => {
                                     transition="all 0.2s ease"
                                     fontSize="16px"
                                     fontWeight={400}
+                                    w={['100%', '100%', 'auto']}
+
                                 >
                                     <Link
                                         to={'contact'}
@@ -93,7 +120,12 @@ const Hero = () => {
                                     </Link>
                                 </Button>
                             </Flex>
-                            <Stack direction={'row'} spacing="30px" pt={20}>
+                            <Stack
+                                direction={'row'}
+                                spacing="30px"
+                                pt={['70px', '70px', 20]}
+                                justifyContent={['center', 'center', 'start']}
+                            >
                                 <Link
                                     to="projects"
                                     smooth={true}
@@ -106,11 +138,11 @@ const Hero = () => {
                                         }}
                                     >
                                         <Heading
-                                            fontSize="lg"
+                                            fontSize={['xl', 'xl', 'lg']}
                                             pb={2}
                                         >Projects</Heading>
                                         <Text
-                                            fontSize="xs"
+                                            fontSize={['sm', 'sm', 'xs']}
                                             color="gray.300"
                                         >
                                             Mobile application desing <br />
@@ -134,11 +166,11 @@ const Hero = () => {
                                         pl={3}
                                     >
                                         <Heading
-                                            fontSize="lg"
+                                            fontSize={['xl', 'xl', 'lg']}
                                             pb={2}
                                         >About me</Heading>
                                         <Text
-                                            fontSize="xs"
+                                            fontSize={['sm', 'sm', 'xs']}
                                             color="gray.300"
                                         >
                                             Mobile application desing <br />
@@ -151,7 +183,12 @@ const Hero = () => {
                             </Stack>
                         </Stack>
                     </Box>
-                    <Box position={'relative'} w={['100%', '100%', "35%"]} opacity={[0, 0, 1]}>
+                    <Box
+                        position={'relative'}
+                        w={['100%', '100%', "35%"]}
+                        opacity={[0, 0, 1]}
+                        display={['none', 'none', 'block']}
+                    >
                         <Image
                             boxSize={'100%'}
                             position={'relative'}

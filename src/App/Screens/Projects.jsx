@@ -157,7 +157,7 @@ const Projects = () => {
                         wrap={'wrap'}
                         gap={7}
                         py={6}
-                        px={['40px', '40px', 0]}
+                        px={['10px', '10px', 0]}
                     >
                         {
                             miniProjects.map(({ title, desc, link, repo }, index) =>

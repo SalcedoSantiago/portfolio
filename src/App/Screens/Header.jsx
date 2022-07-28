@@ -3,85 +3,47 @@
  */
 import React from 'react'
 import { Container, Stack, Box, Text, Button } from '@chakra-ui/react'
-import Hero from '../Components/Hero';
-import { Link as LinkR } from 'react-scroll'
-import styled from 'styled-components';
 
 /**
  * Internal dependencies
  */
+import MenuMobile from '../Components/MenuMobile'
+import Hero from '../Components/Hero';
+import Nav from '../Components/nav';
+
 
 const Header = () => {
 
-    const links = ['home', 'about', 'skills', 'projects', 'contact'];
-
-    const Link = styled(LinkR)`
-        text-decoration: none!important;
-        color:var(--chakra-colors-gray-200);
-        transition: all .2s;
-        letter-spacing: inherit;
-
-        &:hover{
-            color:var(--chakra-colors-primary);
-        }
-    `
-
     return (
-        <Container maxW={'5xl'}>
-            <Stack direction={'row'} justifyContent="space-between" py={'40px'} align='center'>
-                <Box
-                    fontSize="20px"
-                >
-                    Santiagod
-                </Box>
+        <Box
+            bgColor={['#0000006a', '#0000006a', 'transparent']}
+            position={['fixed', 'fixed', 'initial']}
+            top={0}
+            zIndex={3}
+            shadow="xl"
+            w="100%"
+        >
+            <Container maxW={'5xl'} shadow={['xl', 'xl', 'none']}>
                 <Stack
-                    as={'nav'}
                     direction={'row'}
-                    spacing={'30px'}
-                    align={'center'}
+                    justifyContent="space-between"
+                    py={['30px', '30px', '40px']}
+                    px={[0, 0, 3]}
+                    align='center'
                 >
-                    {links.map((link) =>
-                        <Text
-                            // as="a"
-                            textTransform={'capitalize'}
-                            fontSize="18px"
-                            fontFamily={'Jost'}
-                            cursor="pointer"
-                            letterSpacing={'0.20px'}
-                            textDecor={'none'}
-                            fontWeight={400}
-                            color="gray.300"
-                            _hover={{
-                                color: 'primary'
-                            }}
-                        >
-                            <Link
-                                to={link}
-                                smooth={true}
-                                duration={500}
-                            >
-                                {link}
-                            </Link>
-                        </Text >
-                    )}
-                    <Button
-                        as="a"
-                        href="mailto:santiagosalcedod@gmail.com"
-                        my={3}
-                        px={'30px'}
-                        variant="primary"
-                        borderRadius={'3px'}
-                        transition="all 0.2s ease"
-                        fontSize="16px"
-                        fontWeight={400}
+                    <Box
+                        fontSize="20px"
                     >
-                        Resume
-                    </Button>
+                        Santiagod
+                    </Box>
+                    <MenuMobile />
+                    <Box display={['none', 'none', 'block']}>
+                        <Nav />
+                    </Box>
                 </Stack>
-            </Stack>
+            </Container>
+        </Box>
 
-            <Hero />
-        </Container>
     )
 }
 

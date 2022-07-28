@@ -13,7 +13,7 @@ import ImageProject from './project/Image'
 const MainProject = ({ direction = 'r', image, desc, title }) => {
     return (
         <Stack
-            direction={'row'}
+            direction={['column', 'column', 'row']}
             spacing={7}
             justifyContent="space-between"
             align={'center'}
@@ -22,7 +22,7 @@ const MainProject = ({ direction = 'r', image, desc, title }) => {
             {
                 direction == 'l' && <ImageProject image={image} />
             }
-            <Stack direction={'column'} w="50%">
+            <Stack direction={'column'} w={['100%', '100%', '50%']} order={[2, 2, 0]}>
                 <Box
                     as="a"
                     href="htpps://www.google.com"

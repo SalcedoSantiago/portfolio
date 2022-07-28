@@ -98,7 +98,7 @@ const Skills = () => {
         >
             <Box
                 py={'60px'}
-                px={'90px'}
+                px={[0, 0, '90px']}
             >
                 {/* <Divider /> */}
                 <Heading
@@ -126,10 +126,16 @@ const Skills = () => {
                             fontSize={'xl'}
                             fontWeight={600}
                             py={5}
+                            textAlign={['center', 'center', 'start']}
                         >
                             Programming Lenguaje
                         </Heading>
-                        <Stack direction={'row'} spacing={2}>
+                        <Flex
+                            justifyContent={['center', 'center', 'start']}
+                            gap={2}
+                            maxW="100%"
+                            wrap={'wrap'}
+                        >
                             {Lenguaje.map(({ title, image }, index) =>
                                 <Skill
                                     key={index}
@@ -138,7 +144,7 @@ const Skills = () => {
                                 />
 
                             )}
-                        </Stack>
+                        </Flex>
                     </Box>
                 </Stack>
 
@@ -149,11 +155,17 @@ const Skills = () => {
                             color={'gray.200'}
                             fontSize={'xl'}
                             fontWeight={600}
+                            textAlign={['center', 'center', 'start']}
                             py={5}
                         >
                             Libraries & Frameworks
                         </Heading>
-                        <Flex direction={'row'} gap={2} wrap={'wrap'} >
+                        <Flex
+                            justifyContent={['center', 'center', 'start']}
+                            gap={2}
+                            maxW="100%"
+                            wrap={'wrap'}
+                        >
                             {Libraries.map(({ title, image }, index) =>
                                 <Skill
                                     key={index}
@@ -170,11 +182,17 @@ const Skills = () => {
                             color={'gray.200'}
                             fontSize={'xl'}
                             fontWeight={600}
+                            textAlign={['center', 'center', 'start']}
                             py={5}
                         >
                             Tools & Platforms
                         </Heading>
-                        <Flex direction={'row'} gap={2} wrap={'wrap'} >
+                        <Flex
+                            justifyContent={['center', 'center', 'start']}
+                            gap={2}
+                            maxW="100%"
+                            wrap={'wrap'}
+                        >
                             {Tools.map(({ title, image }, index) =>
                                 <Skill
                                     key={index}
@@ -188,8 +206,8 @@ const Skills = () => {
                     </Box>
                 </Stack>
 
-            </Box>
-        </Element>
+            </Box >
+        </Element >
     )
 }
 

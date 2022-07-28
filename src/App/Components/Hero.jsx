@@ -34,11 +34,10 @@ const Hero = () => {
             <Stack
                 direction={'column'}
                 justifyContent={'center'}
-                minH={'75vh'}
-                flex={1}
+                minH={['auto', 'auto', '75vh']}
             >
-                <Stack direction={"row"} spacing={6} align='start' justifyContent={'space-between'}>
-                    <Box w="60%" py={4}>
+                <Stack direction={['column', 'column', 'row']} spacing={6} align='start' justifyContent={'space-between'}>
+                    <Box w={['100%', '100%', "60%"]} py={4}>
                         <Stack direction={'column'} spacing={0}>
                             <Heading
                                 as="h1"
@@ -152,11 +151,12 @@ const Hero = () => {
                             </Stack>
                         </Stack>
                     </Box>
-                    <Box position={'relative'} w="35%">
+                    <Box position={'relative'} w={['100%', '100%', "35%"]} opacity={[0, 0, 1]}>
                         <Image
                             boxSize={'100%'}
                             position={'relative'}
                             zIndex={9999}
+                            display={['none', 'none', 'block']}
                             borderRadius="9999"
                             src={Me}
                         />

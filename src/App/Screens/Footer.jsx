@@ -38,7 +38,7 @@ const Footer = () => {
                 <Stack direction={'row'} justifyContent={'center'} align='center' spacing={6} pb={3}>
                     <Box
                         as="a"
-                        href='https://www.linkedin.com'
+                        href='https://wa.me/541125709209?text=Hello!'
                         target={'_blank'}
                         color="gray.400"
                         cursor={'pointer'}
@@ -51,7 +51,7 @@ const Footer = () => {
                     </Box>
                     <Box
                         as="a"
-                        href='https://www.linkedin.com'
+                        href='https://github.com/SalcedoSantiago'
                         target={'_blank'}
                         color="gray.400"
                         cursor={'pointer'}
@@ -65,7 +65,7 @@ const Footer = () => {
 
                     <Box
                         as="a"
-                        href='https://www.linkedin.com'
+                        href='https://www.linkedin.com/in/santiago-dalmiro-salcedo/'
                         target={'_blank'}
                         color="gray.400"
                         cursor={'pointer'}
@@ -78,7 +78,7 @@ const Footer = () => {
                     </Box>
                     <Box
                         as="a"
-                        href='https://www.linkedin.com'
+                        href="mailto:santiagosalcedod@gmail.com"
                         target={'_blank'}
                         color="gray.400"
                         cursor={'pointer'}
@@ -102,7 +102,7 @@ const Footer = () => {
                     cursor="pointer"
                     transition={'al .2s '}
                 >
-                    Built by <Box as="a" color="primary">Santiago Salcedo</Box>
+                    Built by <Box as="a" href='https://www.linkedin.com/in/santiago-dalmiro-salcedo/' target={'_blank'} color="primary">Santiago Salcedo</Box>
                 </Text>
                 <Text
                     color={'gray.300'}

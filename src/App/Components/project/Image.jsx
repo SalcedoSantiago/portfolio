@@ -5,7 +5,7 @@ import Image_ from '../../../assets/test.jpg'
 const ImageProject = ({ image }) => {
     return (
         <Box
-            w="50%"
+            w={['100%', '100%', '50%']}
             as='a'
             h="100%"
             cursor={'pointer'}
@@ -28,7 +28,7 @@ const ImageProject = ({ image }) => {
                 top={0}
                 left={0}
                 bgColor={'#00000036'}
-                // mixBlendMode={'screen'}
+            // mixBlendMode={'screen'}
             >
             </Box>
         </Box>

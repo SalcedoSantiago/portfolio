@@ -17,6 +17,7 @@ const StickyLeft = () => {
             color={'gray.300'}
             cursor={'pointer'}
             fontFamily="'Inter'"
+            opacity={[0,0,1]}
             left={'40px'}
         >
             <Stack direction={'column'} justifyContent={'center'} align='center' spacing={6} flex={1}>

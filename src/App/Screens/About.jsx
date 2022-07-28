@@ -67,6 +67,7 @@ const About = () => {
                         color="gray.100"
                         textAlign={'center'}
                         py={6}
+                        px={[3, 3, 3]}
                     >
                         About me
                     </Heading>

@@ -23,6 +23,7 @@ const StickyRight = () => {
             cursor={'pointer'}
             w="40px"
             right={'40px'}
+            opacity={[0, 0, 1]}
         >
             <Stack direction={'column'} justifyContent={'center'} align='center' spacing={6} flex={1}>
                 <TextLink

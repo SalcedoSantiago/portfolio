@@ -14,7 +14,7 @@ const Project = ({ desc, title, link, repo }) => {
             as="a"
             href={link ? link : repo ? repo : ''}
             target={'_blank'}
-            w={'calc(33% - 1rem)'}
+            w={['100%', '100%', 'calc(33% - 1rem)']}
             direction={'column'}
             bgColor={'gray.700'}
             textDecoration="none"

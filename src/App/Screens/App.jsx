@@ -23,22 +23,22 @@ import Hero from '../Components/Hero';
 
 const App = () => {
     const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-        setTimeout(() => {
-            setLoaded(true);
-        }, 1000);
-    }, [])
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setLoaded(true);
+    //     }, 1000);
+    // }, [])
 
 
-    if (!loaded) {
+    // if (!loaded) {
 
-        return (
-            <Box>
-                loading
-            </Box>
-        )
+    //     return (
+    //         <Box>
+    //             loading
+    //         </Box>
+    //     )
 
-    }
+    // }
 
     return (
         <Box minH={'100vh'}>

@@ -20,7 +20,7 @@ const Header = () => {
             position={['fixed', 'fixed', 'initial']}
             top={0}
             zIndex={3}
-            shadow="xl"
+            shadow={['xl', 'xl', 'none']}
             w="100%"
         >
             <Container maxW={'5xl'} shadow={['xl', 'xl', 'none']}>
@@ -43,7 +43,6 @@ const Header = () => {
                 </Stack>
             </Container>
         </Box>
-
     )
 }
 

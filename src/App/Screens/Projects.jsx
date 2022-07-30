@@ -106,13 +106,14 @@ const Projects = () => {
         <Element
             name='projects'
         >
-            <Fade bottom>
-                <Stack
-                    py={'120px'}
-                    direction={'column'}
-                    spacing={'60px'}
-                >
-                    <Box>
+            <Stack
+                py={'120px'}
+                direction={'column'}
+                spacing={'60px'}
+            >
+
+                <Box>
+                    <Fade bottom>
                         <Heading
                             display={'block'}
                             w={'100%'}
@@ -123,6 +124,7 @@ const Projects = () => {
                         >
                             Latest Projects
                         </Heading>
+
                         <Text
                             lineHeight={'35px'}
                             letterSpacing='0.2px'
@@ -137,58 +139,58 @@ const Projects = () => {
                         >
                             Here is the list of projects I do personally. from the new to the old. most were created to learn technologies and tools new.
                         </Text>
-                        <Stack
-                            direction={'column'}
-                            py={6}
-                            spacing={'50px'}
-                        >
-                            {mainProjects.map(({ title, desc, image, url, repo }) =>
-                                <MainProject
-                                    key={title}
-                                    image={image}
-                                    direction='r'
-                                    desc={desc}
-                                    url={url}
-                                    repo={repo}
-                                    title={title}
-                                />
-                            )}
-                        </Stack>
-                    </Box>
-
-                    <Box
-                        pt={"100px"}
+                    </Fade>
+                    <Stack
+                        direction={'column'}
+                        py={6}
+                        spacing={'50px'}
                     >
-                        <Heading
-                            textAlign={'center'}
-                            pb={'40px'}
-                            fontSize={'4xl'}
-                            color="gray.200"
-                        >
-                            Other Noteworthy Projects
-                        </Heading>
+                        {mainProjects.map(({ title, desc, image, url, repo }) =>
+                            <MainProject
+                                key={title}
+                                image={image}
+                                direction='r'
+                                desc={desc}
+                                url={url}
+                                repo={repo}
+                                title={title}
+                            />
+                        )}
+                    </Stack>
+                </Box>
 
-                        <Flex
-                            wrap={'wrap'}
-                            gap={7}
-                            py={6}
-                            px={['10px', '10px', 0]}
-                        >
-                            {
-                                miniProjects.map(({ title, desc, link, repo }, index) =>
-                                    <Project
-                                        key={index}
-                                        title={title}
-                                        link={link}
-                                        desc={desc}
-                                        repo={repo}
-                                    />
-                                )
-                            }
-                        </Flex>
-                    </Box>
-                </Stack>
-            </Fade>
+                <Box
+                    pt={"100px"}
+                >
+                    <Heading
+                        textAlign={'center'}
+                        pb={'40px'}
+                        fontSize={'4xl'}
+                        color="gray.200"
+                    >
+                        Other Noteworthy Projects
+                    </Heading>
+
+                    <Flex
+                        wrap={'wrap'}
+                        gap={7}
+                        py={6}
+                        px={['10px', '10px', 0]}
+                    >
+                        {
+                            miniProjects.map(({ title, desc, link, repo }, index) =>
+                                <Project
+                                    key={index}
+                                    title={title}
+                                    link={link}
+                                    desc={desc}
+                                    repo={repo}
+                                />
+                            )
+                        }
+                    </Flex>
+                </Box>
+            </Stack>
         </Element>
     )
 }

@@ -1,15 +1,15 @@
 import React from 'react'
-import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container } from '@chakra-ui/react';
-import Image_ from '../../../assets/test.jpg'
+import { Box, Image, } from '@chakra-ui/react';
+import Image_ from '../../../assets/pokedex.jpg'
 
-const ImageProject = ({ image }) => {
+const ImageProject = ({ image, url }) => {
     return (
         <Box
             w={['100%', '100%', '50%']}
             as='a'
             h="100%"
             cursor={'pointer'}
-            href="https://www.google.com"
+            href={url}
             target={'_blank'}
             position={'relative'}
             transition="all .2s"

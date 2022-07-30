@@ -10,7 +10,6 @@ import { ChakraProvider } from '@chakra-ui/react'
  */
 import AppScreen from './App/Screens/App'
 import theme from './theme';
-import './index.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

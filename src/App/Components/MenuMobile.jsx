@@ -1,17 +1,13 @@
 /**
  * External dependencies
  */
-import {
+ import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
     DrawerOverlay,
     DrawerContent,
-    useDisclosure,
-    DrawerCloseButton,
 } from '@chakra-ui/react';
-import { Stack, Link, Text, Box, Image, Heading, Flex, Button, Container } from '@chakra-ui/react';
+import { Box, Flex, Button, } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { RiCloseLine } from 'react-icons/ri';

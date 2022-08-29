@@ -3,6 +3,13 @@ import { Box, Image, } from '@chakra-ui/react';
 import Image_ from '../../../assets/pokedex.jpg'
 
 const ImageProject = ({ image, url }) => {
+
+
+
+
+
+
+    
     return (
         <Box
             w={['100%', '100%', '50%']}
@@ -28,7 +35,7 @@ const ImageProject = ({ image, url }) => {
                 top={0}
                 left={0}
                 bgColor={'#00000036'}
-            // mixBlendMode={'screen'}
+            mixBlendMode={'screen'}
             >
             </Box>
         </Box>

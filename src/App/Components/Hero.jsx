@@ -94,7 +94,8 @@ const Hero = () => {
                                     fontSize="18px"
                                 >
                                     <Text pb={2}>
-                                        I have been working since 2018. i am proficient in programing, <Box as="span" color="primary"> web development</Box>
+                                        I'm a <Box as="span" color="primary">Full stack Web Developer</Box> 
+                                       . I love working on the web
                                     </Text>
                                 </Box>
 
@@ -144,18 +145,11 @@ const Hero = () => {
                                                 fontSize={['xl', 'xl', 'lg']}
                                                 pb={2}
                                             >Projects</Heading>
-                                            <Text
-                                                fontSize={['sm', 'sm', 'xs']}
-                                                color="gray.300"
-                                            >
-                                                Mobile application desing <br />
-                                                Website design <br />
-                                                Logo & Branding design.
-                                            </Text>
+
                                         </Box>
                                     </Link>
 
-                                    <Divider orientation='vertical' h="80px" />
+                                    <Divider orientation='vertical' h="15px" />
                                     <Link
                                         to="about"
                                         smooth={true}
@@ -172,14 +166,7 @@ const Hero = () => {
                                                 fontSize={['xl', 'xl', 'lg']}
                                                 pb={2}
                                             >About me</Heading>
-                                            <Text
-                                                fontSize={['sm', 'sm', 'xs']}
-                                                color="gray.300"
-                                            >
-                                                Mobile application desing <br />
-                                                Website design <br />
-                                                Logo & Branding design.
-                                            </Text>
+
                                         </Box>
                                     </Link>
 
@@ -192,26 +179,34 @@ const Hero = () => {
                             opacity={[0, 0, 1]}
                             display={['none', 'none', 'block']}
                         >
-                            <Image
-                                boxSize={'100%'}
-                                position={'relative'}
-                                zIndex={9999}
-                                display={['none', 'none', 'block']}
-                                borderRadius="9999"
-                                src={Me}
-                                width="100%"
-                                height="100%"
-                            />
                             <Box
-                                width={'350px'}
-                                height={'350px'}
-                                bgColor={'#00B389'}
-                                borderRadius={99999}
-                                position={'absolute'}
-                                bottom={1}
-                                left={0}
+                                position={'relative'}
+                                height="400px"
+                                width="358px"
                             >
+                                <Image
+                                    boxSize={'100%'}
+                                    position={'relative'}
+                                    zIndex={9999}
+                                    display={['none', 'none', 'block']}
+                                    borderRadius="9999"
+                                    src={Me}
+                                // width="100%"
+                                // height="auto"
+                                />
+                                <Box
+                                    width="100%"
+                                    height={'350px'}
+                                    bgColor={'#00B389'}
+                                    borderRadius={99999}
+                                    position={'absolute'}
+                                    bottom={1}
+                                    left={0}
+                                >
+                                </Box>
                             </Box>
+
+
                         </Box>
                     </Stack>
                 </Stack>

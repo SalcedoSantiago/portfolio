@@ -48,24 +48,12 @@ const About = () => {
                             <Text
                                 py={2}
                             >
-                                I started in the world of development in 2018 or so, and since I met him I have never stopped learn, I have a deep love to learn something new.
+                                I am from Argentina, Buenos Aires. I started programming/developing about 2 years ago, and ever since I learned what development is, I never stopped.
                             </Text>
-                            <Text
-                                py={2}
-                            >
-                                I don't give up easily and always try to reach my goals.
-                                I am currently working on @Quadlayers as a Full Stack Developer.
-                                currently i created several applications using different technologies for tried to learn new things
-                            </Text>
-                            <Text
-                                lineHeight={'35px'}
-                                py={2}
-                            >
-                                My current goal is to dedicate myself to the Front End.
-                            </Text>
+                          
                         </Box>
 
-                        <Stack py={7} mt="50px" direction={'row'} justifyContent={'center'} align='center' spacing={6}>
+                        <Stack py={7} mt="30px" direction={'row'} justifyContent={'center'} align='center' spacing={6}>
                             <Box
                                 as="a"
                                 href='https://wa.me/541125709209?text=Hello!'

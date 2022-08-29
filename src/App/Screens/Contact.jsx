@@ -40,9 +40,7 @@ const Contact = () => {
                         fontSize={'18px'}
                         color="gray.300"
                         pb={'30px'}
-                    >Here is the list of projects I do personally.
-                        from the new to the old. most were created to learn technologies and tools
-                        new. <br />
+                    >I'm currently actively looking for new opportunities and projects<br />
                         Whether you have a question or just want to say hi, I’ll try my best to get back to you!
                     </Text>
 

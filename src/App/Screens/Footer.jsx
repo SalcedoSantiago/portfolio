@@ -100,19 +100,7 @@ const Footer = () => {
                 >
                     Built by <Box as="a" href='https://www.linkedin.com/in/santiago-dalmiro-salcedo/' target={'_blank'} color="primary">Santiago Salcedo</Box>
                 </Text>
-                <Text
-                    color={'gray.300'}
-                    fontWeight="500"
-                    lineHeight={'35px'}
-                    letterSpacing='0.2px'
-                    fontSize={'18px'}
-                    textAlign='center'
-                    pb={'20px'}
-                    cursor="pointer"
-                    transition={'al .2s '}
-                >
-                    Design inspired by <Box as="a" color="primary"> Brittany Chiang's </Box> Portfolio
-                </Text>
+             
             </Stack>
         </Container>
     )

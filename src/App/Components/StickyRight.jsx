@@ -24,6 +24,7 @@ const StickyRight = () => {
             w="40px"
             right={'40px'}
             opacity={[0, 0, 1]}
+            display={['none', 'none', 'block']}
         >
             <Stack direction={'column'} justifyContent={'center'} align='center' spacing={6} flex={1}>
                 <TextLink

@@ -79,10 +79,6 @@ const Skills = () => {
             image: 'https://seeklogo.com/images/W/webpack-logo-9E66EE203A-seeklogo.com.png'
         },
         {
-            title: 'Firebase',
-            image: 'https://valeriabe.github.io/Portafolio/img/f.png'
-        },
-        {
             title: 'NPM',
             image: 'https://cdn.iconscout.com/icon/free/png-256/npm-3521612-2945056.png'
         },

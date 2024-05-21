@@ -7,5 +7,5 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 1600,
   },
-  base: "https://github.com/SalcedoSantiago/portfolio",
+  base: "/portfolio",
 });

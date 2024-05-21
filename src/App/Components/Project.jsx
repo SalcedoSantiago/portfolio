@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Stack, Text, Box, Heading, } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons'
+// import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { FaGithub } from 'react-icons/fa'
 import styled from 'styled-components';
 
@@ -68,7 +68,7 @@ const Project = ({ desc, title, link, repo }) => {
                                         color: 'primary'
                                     }}
                                 >
-                                    <ExternalLinkIcon />
+                                    {/* <ExternalLinkIcon /> */}
                                 </Box>
                             }
 

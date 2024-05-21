@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { Stack, Text, Box, Heading, } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
+// import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { FaGithub } from 'react-icons/fa'
 /**
  * Internal dependencies
@@ -99,7 +99,6 @@ const MainProject = ({ direction = 'r', image, desc, title, url, repo }) => {
                                 color: 'primary'
                             }}
                         >
-                            <ExternalLinkIcon />
                         </Box>
                         {
                             repo &&

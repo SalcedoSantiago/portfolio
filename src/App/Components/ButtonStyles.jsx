@@ -1,5 +1,12 @@
 export const ButtonStyles = {
-  baseStyle: {},
+  baseStyle: {
+    _focusVisible: {
+      outline: "2px solid",
+      outlineColor: "primary",
+      outlineOffset: "3px",
+      boxShadow: "none",
+    },
+  },
   sizes: {},
   variants: {
     primary: {
@@ -9,11 +16,12 @@ export const ButtonStyles = {
       borderRadius: "3px",
       py: 6,
       px: 2,
-      borderStyled: "solid",
+      borderStyle: "solid",
       fontFamily: "'Karla'",
       color: "primary",
       _hover: {
         bg: "rgba(100,255,218,0.1)",
+        textDecoration: "none",
       },
     },
   },

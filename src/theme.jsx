@@ -25,6 +25,9 @@ export default extendTheme({
   },
   styles: {
     global: {
+      html: {
+        scrollPaddingTop: { base: "88px", md: "0" },
+      },
       body: {
         bg: "#121212",
         color: "white",
@@ -33,6 +36,24 @@ export default extendTheme({
         color: "#5EECBF",
         _hover: {
           textDecoration: "underline",
+        },
+        _focusVisible: {
+          outline: "2px solid",
+          outlineColor: "primary",
+          outlineOffset: "3px",
+        },
+      },
+      "button:focus-visible, [role='button']:focus-visible": {
+        outline: "2px solid",
+        outlineColor: "var(--chakra-colors-primary)",
+        outlineOffset: "3px",
+      },
+      "@media (prefers-reduced-motion: reduce)": {
+        "*, *::before, *::after": {
+          animationDuration: "0.01ms !important",
+          animationIterationCount: "1 !important",
+          transitionDuration: "0.01ms !important",
+          scrollBehavior: "auto !important",
         },
       },
     },

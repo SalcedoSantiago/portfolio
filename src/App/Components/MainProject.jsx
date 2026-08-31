@@ -1,130 +1,118 @@
 /**
  * External dependencies
  */
-import { Stack, Text, Box, Heading, } from '@chakra-ui/react';
-// import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { FaGithub } from 'react-icons/fa'
+import { Stack, Text, Box, Heading } from "@chakra-ui/react";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+
 /**
  * Internal dependencies
  */
-// import Github from '../../Icons/github';
-import ImageProject from './project/Image'
-import styled from 'styled-components';
+import ImageProject from "./project/Image";
 
+const MainProject = ({ direction = "r", image, desc, title, url, repo }) => {
+  const urlSite = url || repo || "#";
 
-const MainProject = ({ direction = 'r', image, desc, title, url, repo }) => {
+  return (
+    <Stack
+      direction={["column", "column", "row"]}
+      spacing={7}
+      justifyContent="space-between"
+      align="center"
+      textAlign={direction === "r" ? "start" : "end"}
+    >
+      {direction === "l" && (
+        <ImageProject image={image} url={urlSite} title={title} />
+      )}
 
-
-    const urlSIte = url ? url : repo ? repo : 'https://www.google.com';
-
-
-    const HeadingA = styled.a`
-        text-decoration: none!important;
-        transition: all .2s;
-
-
-        &:hover{
-            transform: scale(1.02);
-            .main-heading{
-             color:var(--chakra-colors-primary);
-            }
-        }
-    `;
-
-
-
-    return (
-
-        <HeadingA
-            href={urlSIte}
-            target="_blank"
+      <Stack direction="column" w={["100%", "100%", "50%"]} order={[2, 2, 0]}>
+        <Heading
+          as="h3"
+          className="main-heading"
+          pt={2}
+          color="gray.200"
+          fontSize="3xl"
+          textAlign={direction === "r" ? "start" : "end"}
+          fontWeight={600}
+          fontFamily="'PT Mono', monospace"
         >
-            <Stack
-                direction={['column', 'column', 'row']}
-                spacing={7}
-                justifyContent="space-between"
-                align={'center'}
-                textAlign={direction === 'r' ? 'start' : 'end'}
+          <Box
+            as="a"
+            href={urlSite}
+            target="_blank"
+            rel="noopener noreferrer"
+            color="inherit"
+            textDecoration="none"
+            _hover={{ color: "primary" }}
+            _focusVisible={{
+              outline: "2px solid",
+              outlineColor: "primary",
+              outlineOffset: "3px",
+            }}
+          >
+            {title}
+          </Box>
+        </Heading>
+
+        <Text fontSize="sm" pb={2} color="gray.400">
+          Website, App
+        </Text>
+        <Text color="gray.300" fontSize="md" lineHeight="25px" pb="20px">
+          {desc}
+        </Text>
+
+        <Stack
+          direction="row"
+          align="center"
+          pt={2}
+          justifyContent={direction === "r" ? "start" : "end"}
+          spacing={6}
+        >
+          {url && (
+            <Box
+              as="a"
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${title} — live site (opens in a new tab)`}
+              color="gray.400"
+              fontSize="20px"
+              _hover={{ color: "primary" }}
+              _focusVisible={{
+                outline: "2px solid",
+                outlineColor: "primary",
+                outlineOffset: "3px",
+              }}
             >
-                {
-                    direction === 'l' && <ImageProject image={image} url={urlSIte} />
-                }
-                <Stack direction={'column'} w={['100%', '100%', '50%']} order={[2, 2, 0]}>
-                    <Heading
-                        className='main-heading'
-                        pt={2}
-                        color="gray.200"
-                        fontSize={'3xl'}
-                        textAlign={direction === 'r' ? 'start' : 'end'}
-                        fontWeight={600}
-                        fontFamily={"'PT Mono'"}
-                        _hover={{
-                            color: 'primary'
-                        }}
-                    >
-                        {title}
-                    </Heading>
+              <FaExternalLinkAlt aria-hidden="true" />
+            </Box>
+          )}
+          {repo && (
+            <Box
+              as="a"
+              href={repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${title} — GitHub repository (opens in a new tab)`}
+              color="gray.400"
+              fontSize="24px"
+              _hover={{ color: "primary" }}
+              _focusVisible={{
+                outline: "2px solid",
+                outlineColor: "primary",
+                outlineOffset: "3px",
+              }}
+            >
+              <FaGithub aria-hidden="true" />
+            </Box>
+          )}
+        </Stack>
+      </Stack>
 
-                    <Text
-                        fontSize={'sm'}
-                        pb={2}
-                        color={'gray.500'}
-                    >
-                        Website, App
-                    </Text>
-                    <Text
-                        color={'gray.300'}
-                        fontSize="md"
-                        lineHeight={'25px'}
-                        pb={'20px'}
-                    >
-                        {desc}
-                    </Text>
+      {direction === "r" && (
+        <ImageProject image={image} url={urlSite} title={title} />
+      )}
+    </Stack>
+  );
+};
 
-                    <Stack
-                        direction={'row'}
-                        align={'center'}
-                        pt={2}
-                        justifyContent={direction === 'r' ? 'start' : 'end'}
-                        spacing={6}
-                    >
-                        <Box
-                            as="a"
-                            target={'_blank'}
-                            color="gray.400"
-                            href={urlSIte}
-                            cursor={'pointer'}
-                            fontSize={'24px'}
-                            _hover={{
-                                color: 'primary'
-                            }}
-                        >
-                        </Box>
-                        {
-                            repo &&
-                            <Box
-                                as="a"
-                                href={repo}
-                                target={'_blank'}
-                                color="gray.400"
-                                cursor={'pointer'}
-                                fontSize={'24px'}
-                                _hover={{
-                                    color: 'primary'
-                                }}
-                            >
-                                <FaGithub />
-                            </Box>
-                        }
-                    </Stack>
-                </Stack>
-
-                {
-                    direction == 'r' && <ImageProject image={image} url={urlSIte} />
-                }
-            </Stack >
-        </HeadingA>
-    )
-}
-
-export default MainProject
+export default MainProject;

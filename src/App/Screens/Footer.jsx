@@ -2,105 +2,99 @@
  * External dependencies
  */
 import { Stack, Text, Flex, Box, Container } from "@chakra-ui/react";
-import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import LogoMe from "../Components/logo";
 
-/**
- * Internal dependencies
- */
-
 const Footer = () => {
   return (
-    <Container maxW={"5xl"} py={"32px"}>
-      <Stack textAlign={"center"}>
-        <Flex justifyContent="center">
-          <LogoMe />
-        </Flex>
-        <Text
-          color={"gray.300"}
-          fontWeight="500"
-          lineHeight={"35px"}
-          letterSpacing="0.2px"
-          fontSize={"18px"}
-          textAlign="center"
-          pb={"20px"}
-        >
-          Thanks for scrolling, that's all folks.
-        </Text>
+    <Box as="footer">
+      <Container maxW="5xl" py="32px">
+        <Stack textAlign="center">
+          <Flex justifyContent="center" aria-hidden="true">
+            <LogoMe />
+          </Flex>
+          <Text
+            color="gray.300"
+            fontWeight="500"
+            lineHeight="35px"
+            letterSpacing="0.2px"
+            fontSize="18px"
+            textAlign="center"
+            pb="20px"
+          >
+            Thanks for scrolling, that's all folks.
+          </Text>
 
-        <Stack
-          direction={"row"}
-          justifyContent={"center"}
-          align="center"
-          spacing={6}
-          pb={3}
-        >
-          <Box
-            as="a"
-            href="https://github.com/SalcedoSantiago"
-            target={"_blank"}
-            color="gray.400"
-            cursor={"pointer"}
-            fontSize={"24px"}
-            _hover={{
-              color: "primary",
-            }}
+          <Stack
+            as="nav"
+            aria-label="Footer social links"
+            direction="row"
+            justifyContent="center"
+            align="center"
+            spacing={6}
+            pb={3}
           >
-            <FaGithub />
-          </Box>
+            <Box
+              as="a"
+              href="https://github.com/SalcedoSantiago"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub (opens in a new tab)"
+              color="gray.400"
+              fontSize="24px"
+              _hover={{ color: "primary" }}
+            >
+              <FaGithub aria-hidden="true" focusable="false" />
+            </Box>
 
-          <Box
-            as="a"
-            href="https://www.linkedin.com/in/santiago-dalmiro-salcedo/"
-            target={"_blank"}
-            color="gray.400"
-            cursor={"pointer"}
-            fontSize={"24px"}
-            _hover={{
-              color: "primary",
-            }}
+            <Box
+              as="a"
+              href="https://www.linkedin.com/in/santiago-dalmiro-salcedo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn (opens in a new tab)"
+              color="gray.400"
+              fontSize="24px"
+              _hover={{ color: "primary" }}
+            >
+              <FaLinkedinIn aria-hidden="true" focusable="false" />
+            </Box>
+            <Box
+              as="a"
+              href="mailto:santiagosalcedod@gmail.com"
+              aria-label="Email Santiago Salcedo"
+              color="gray.400"
+              fontSize="24px"
+              _hover={{ color: "primary" }}
+            >
+              <MdOutlineMail aria-hidden="true" focusable="false" />
+            </Box>
+          </Stack>
+
+          <Text
+            color="gray.300"
+            fontWeight="500"
+            lineHeight="35px"
+            letterSpacing="0.2px"
+            fontSize="18px"
+            textAlign="center"
+            pt={3}
           >
-            <FaLinkedinIn />
-          </Box>
-          <Box
-            as="a"
-            href="mailto:santiagosalcedod@gmail.com"
-            target={"_blank"}
-            color="gray.400"
-            cursor={"pointer"}
-            fontSize={"24px"}
-            _hover={{
-              color: "primary",
-            }}
-          >
-            <MdOutlineMail />
-          </Box>
+            Built by{" "}
+            <Box
+              as="a"
+              href="https://www.linkedin.com/in/santiago-dalmiro-salcedo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="primary"
+            >
+              Santiago Salcedo
+            </Box>
+          </Text>
         </Stack>
-
-        <Text
-          color={"gray.300"}
-          fontWeight="500"
-          lineHeight={"35px"}
-          letterSpacing="0.2px"
-          fontSize={"18px"}
-          textAlign="center"
-          pt={3}
-          cursor="pointer"
-          transition={"al .2s "}
-        >
-          Built by{" "}
-          <Box
-            as="a"
-            href="https://www.linkedin.com/in/santiago-dalmiro-salcedo/"
-            target={"_blank"}
-            color="primary"
-          >
-            Santiago Salcedo
-          </Box>
-        </Text>
-      </Stack>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 

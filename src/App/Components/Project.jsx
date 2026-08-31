@@ -13,7 +13,8 @@ const Project = ({ desc, title, link, repo, index = 0 }) => {
       as="a"
       href={href}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
+      aria-label={`${title} project${repo ? " (opens in a new tab)" : ""}`}
       role="group"
       position="relative"
       overflow="hidden"
@@ -76,7 +77,7 @@ const Project = ({ desc, title, link, repo, index = 0 }) => {
             transition="border-color 0.2s ease, color 0.2s ease"
             _groupHover={{ borderColor: "primary", color: "primary" }}
           >
-            <FaGithub size={14} />
+            <FaGithub size={14} aria-hidden="true" focusable="false" />
           </Flex>
         )}
       </Stack>

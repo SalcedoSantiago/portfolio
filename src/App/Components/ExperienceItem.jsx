@@ -114,7 +114,12 @@ const ExperienceItem = ({
           >
             <Box>
               <Flex align="center" gap={2} wrap="wrap">
-                <Heading fontSize={{ base: "2xl", md: "3xl" }} color="gray.100" fontWeight={700}>
+                <Heading
+                  as="h3"
+                  fontSize={{ base: "2xl", md: "3xl" }}
+                  color="gray.100"
+                  fontWeight={700}
+                >
                   {company}
                 </Heading>
                 {isCurrent && (
@@ -133,6 +138,12 @@ const ExperienceItem = ({
                       borderRadius="full"
                       bg="primary"
                       animation={`${pulse} 2.4s infinite`}
+                      sx={{
+                        "@media (prefers-reduced-motion: reduce)": {
+                          animation: "none",
+                        },
+                      }}
+                      aria-hidden="true"
                     />
                     <Text
                       fontFamily="'PT Mono', monospace"

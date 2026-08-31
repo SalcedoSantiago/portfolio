@@ -134,6 +134,7 @@ const Resume = () => {
             {/* Header */}
             <Box px={["24px", "40px", "48px"]} pt={["32px", "40px", "48px"]} pb={6}>
               <Heading
+                as="h1"
                 fontSize={["2xl", "3xl", "4xl"]}
                 fontWeight={700}
                 color="#1a1a1a"

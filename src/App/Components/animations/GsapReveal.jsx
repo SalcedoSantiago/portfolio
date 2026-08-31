@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 /**
  * Internal dependencies
  */
-import { gsap, ScrollTrigger } from "./gsapSetup";
+import { gsap, prefersReducedMotion } from "./gsapSetup";
 
 const variants = {
   fadeUp: { y: 80, opacity: 0, scale: 0.96 },
@@ -32,7 +32,7 @@ const GsapReveal = ({
   useGSAP(
     () => {
       const el = ref.current;
-      if (!el) return;
+      if (!el || prefersReducedMotion()) return;
 
       const targets = stagger > 0 ? el.children : el;
       const fromVars = { ...variants[variant], delay, duration, ease: "power4.out" };
@@ -47,7 +47,8 @@ const GsapReveal = ({
         scrollTrigger: {
           trigger: el,
           start,
-          toggleActions: "play none none reverse",
+          // Avoid reverse-to-hidden which can leave content inaccessible
+          toggleActions: "play none none none",
         },
       });
     },

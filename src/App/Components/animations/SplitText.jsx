@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 /**
  * Internal dependencies
  */
-import { gsap } from "./gsapSetup";
+import { gsap, prefersReducedMotion } from "./gsapSetup";
 
 export const SplitChars = ({
   text,
@@ -22,7 +22,7 @@ export const SplitChars = ({
 
   useGSAP(
     () => {
-      if (!trigger) return;
+      if (!trigger || prefersReducedMotion()) return;
 
       const chars = containerRef.current?.querySelectorAll(".split-char-inner");
       if (!chars?.length) return;
@@ -73,9 +73,7 @@ export const SplitWords = ({
 
   useGSAP(
     () => {
-      if (!trigger) return;
-
-      const words = containerRef.current?.querySelectorAll(".split-word-inner");
+      if (!trigger || prefersReducedMotion()) return;
       if (!words?.length) return;
 
       gsap.from(words, {

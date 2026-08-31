@@ -8,13 +8,15 @@ import { useGSAP } from "@gsap/react";
 /**
  * Internal dependencies
  */
-import { gsap } from "./gsapSetup";
+import { gsap, prefersReducedMotion } from "./gsapSetup";
 
 const BackgroundOrbs = () => {
   const containerRef = useRef(null);
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return;
+
       const orbs = gsap.utils.toArray(".bg-orb");
       orbs.forEach((orb, index) => {
         gsap.to(orb, {
@@ -38,6 +40,7 @@ const BackgroundOrbs = () => {
       overflow="hidden"
       pointerEvents="none"
       zIndex={0}
+      aria-hidden="true"
     >
       <Box
         className="bg-orb"

@@ -2,59 +2,75 @@
  * External dependencies
  */
 import {
-    Drawer,
-    DrawerBody,
-    DrawerOverlay,
-    DrawerContent,
-} from '@chakra-ui/react';
-import { Box, Flex, Button, } from '@chakra-ui/react';
-import { useState } from 'react';
-import { FaBars } from 'react-icons/fa';
-import { RiCloseLine } from 'react-icons/ri';
-import Nav from './nav';
-
+  Drawer,
+  DrawerBody,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Box,
+  Button,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { FaBars } from "react-icons/fa";
+import Nav from "./nav";
 
 const MenuMobile = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const [isOpen, toggleOpen] = useState(false)
-    // const { isOpen, onOpen, onClose } = useDisclosure()
-
-    return (
-        <Box display={['block', 'block', 'none']}>
-            <Button colorScheme='dark' onClick={() => { toggleOpen(!isOpen) }}>
-                <FaBars
-                    fontSize={'40px'}
-                />
-            </Button>
-            <Drawer
-                size={'md'}
-                isOpen={isOpen}
-                placement='right'
-                onClose={() => { toggleOpen(!isOpen) }}
+  return (
+    <Box display={["block", "block", "none"]}>
+      <Button
+        variant="ghost"
+        color="gray.200"
+        onClick={onOpen}
+        aria-label="Open navigation menu"
+        aria-expanded={isOpen}
+        aria-controls="mobile-nav-drawer"
+        _focusVisible={{
+          outline: "2px solid",
+          outlineColor: "primary",
+          outlineOffset: "3px",
+        }}
+      >
+        <FaBars fontSize="32px" aria-hidden="true" focusable="false" />
+      </Button>
+      <Drawer
+        size="md"
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+      >
+        <DrawerOverlay />
+        <DrawerContent bgColor="gray.800" id="mobile-nav-drawer">
+          <DrawerCloseButton
+            aria-label="Close navigation menu"
+            size="lg"
+            color="gray.200"
+            top="24px"
+            right="24px"
+            _focusVisible={{
+              outline: "2px solid",
+              outlineColor: "primary",
+              outlineOffset: "3px",
+            }}
+          />
+          <DrawerBody pt="80px">
+            <Box
+              as="nav"
+              aria-label="Mobile"
+              onClick={(event) => {
+                if (event.target.closest("a")) {
+                  onClose();
+                }
+              }}
             >
-                <DrawerOverlay />
-                <DrawerContent
-                    bgColor={'gray.800'}
-                >
+              <Nav />
+            </Box>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </Box>
+  );
+};
 
-                    <DrawerBody >
-                        <Box pt={'30px'}>
-                            <Flex w="100%" justifyContent={'center'}>
-                                <Button colorScheme='dark' onClick={() => { toggleOpen(!isOpen) }}>
-                                    <RiCloseLine
-                                        fontSize={'40px'}
-                                    />
-                                </Button>
-                            </Flex>
-                            <Box pt={'30px'}>
-                                <Nav />
-                            </Box>
-                        </Box>
-                    </DrawerBody>
-                </DrawerContent>
-            </Drawer>
-        </Box>
-    )
-}
-
-export default MenuMobile
+export default MenuMobile;

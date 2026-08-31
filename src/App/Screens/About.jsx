@@ -99,50 +99,53 @@ const About = () => {
                 as="a"
                 href="https://wa.me/541125709209?text=Hello!"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp (opens in a new tab)"
                 color="gray.400"
                 fontSize="24px"
                 transition="all 0.2s"
                 _hover={{ color: "primary", transform: "translateY(-3px)" }}
               >
-                <FaWhatsapp />
+                <FaWhatsapp aria-hidden="true" focusable="false" />
               </Box>
               <Box
                 as="a"
                 href="https://github.com/SalcedoSantiago"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="GitHub (opens in a new tab)"
                 color="gray.400"
                 fontSize="24px"
                 transition="all 0.2s"
                 _hover={{ color: "primary", transform: "translateY(-3px)" }}
               >
-                <FaGithub />
+                <FaGithub aria-hidden="true" focusable="false" />
               </Box>
               <Box
                 as="a"
                 href="https://www.linkedin.com/in/santiago-dalmiro-salcedo/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn (opens in a new tab)"
                 color="gray.400"
                 fontSize="24px"
                 transition="all 0.2s"
                 _hover={{ color: "primary", transform: "translateY(-3px)" }}
               >
-                <FaLinkedinIn />
+                <FaLinkedinIn aria-hidden="true" focusable="false" />
               </Box>
               <Box
                 as="a"
                 fontSize="18px"
                 fontWeight={500}
-                bgColor="gray.600"
-                color="gray.400"
+                bgColor="gray.800"
+                color="gray.100"
                 p={2}
                 href="mailto:santiagosalcedod@gmail.com"
                 px={3}
                 borderRadius="6px"
                 borderWidth="1px"
-                borderColor="gray.900"
+                borderColor="gray.600"
                 transition="all 0.2s"
                 _hover={{
                   color: "primary",
@@ -150,7 +153,7 @@ const About = () => {
                   borderColor: "primary",
                 }}
               >
-                @ Email Me
+                Email Me
               </Box>
             </Stack>
           </GsapReveal>

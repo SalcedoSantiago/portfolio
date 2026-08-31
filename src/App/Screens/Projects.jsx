@@ -151,7 +151,7 @@ const Projects = () => {
 
           <Box overflow="hidden" pb="24px">
             <GsapReveal variant="clipUp">
-              <Heading textAlign="center" fontSize="4xl" color="gray.200">
+              <Heading as="h2" textAlign="center" fontSize="4xl" color="gray.200">
                 Other Noteworthy Projects
               </Heading>
             </GsapReveal>

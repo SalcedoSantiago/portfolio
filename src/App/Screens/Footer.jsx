@@ -12,7 +12,7 @@ import LogoMe from "../Components/logo";
 
 const Footer = () => {
   return (
-    <Container maxW={"5xl"} py={"50px"}>
+    <Container maxW={"5xl"} py={"32px"}>
       <Stack textAlign={"center"}>
         <Flex justifyContent="center">
           <LogoMe />

@@ -1,183 +1,212 @@
 /**
  * External dependencies
  */
-import React from "react";
-import { Stack, Text, Box, Heading, Flex } from "@chakra-ui/react";
+import React, { useMemo, useRef } from "react";
+import {
+  Text,
+  Box,
+  Heading,
+  SimpleGrid,
+  Flex,
+} from "@chakra-ui/react";
 import { Element } from "react-scroll";
+import { useGSAP } from "@gsap/react";
 
 /**
  * Internal dependencies
  */
-
 import Skill from "../Components/Skill";
+import Eyebrow from "../Components/Eyebrow";
+import StatCard from "../Components/StatCard";
+import GsapSectionTitle from "../Components/animations/GsapSectionTitle";
+import GsapReveal from "../Components/animations/GsapReveal";
+import { skillIcons } from "../../data/resumeData";
+import { gsap } from "../Components/animations/gsapSetup";
+import { SECTION_PY } from "../constants/layout";
+
+const skillSections = [
+  { title: "Programming Languages", items: skillIcons.languages },
+  { title: "Libraries & Frameworks", items: skillIcons.libraries },
+  { title: "AI-Assisted Development", items: skillIcons.aiTools },
+  { title: "Tools & Platforms", items: skillIcons.tools },
+];
+
+const SkillCategory = ({ title, items, index }) => {
+  const cardRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(cardRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: "top 88%",
+          toggleActions: "play none none reverse",
+        },
+        delay: index * 0.08,
+      });
+
+      const chips = cardRef.current?.querySelectorAll(".skill-chip");
+      if (chips?.length) {
+        gsap.from(chips, {
+          y: 20,
+          opacity: 0,
+          stagger: 0.04,
+          duration: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: cardRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+          delay: 0.15 + index * 0.08,
+        });
+      }
+    },
+    { scope: cardRef, dependencies: [index] }
+  );
+
+  return (
+    <Box
+      ref={cardRef}
+      role="group"
+      position="relative"
+      overflow="hidden"
+      p={[5, 6, 7]}
+      bg="gray.800"
+      borderWidth="1px"
+      borderColor="gray.800"
+      borderRadius="2xl"
+      transition="border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease"
+      _hover={{
+        borderColor: "primary",
+        transform: "translateY(-4px)",
+        boxShadow: "0 16px 34px -18px rgba(94, 236, 191, 0.3)",
+      }}
+      h="100%"
+    >
+      <Box
+        position="absolute"
+        top={{ base: "-6px", md: "-14px" }}
+        right={{ base: "12px", md: "20px" }}
+        fontFamily="'Fraunces', serif"
+        fontStyle="italic"
+        fontWeight={500}
+        fontSize={{ base: "56px", md: "88px" }}
+        lineHeight="1"
+        color="whiteAlpha.100"
+        transition="color 0.4s ease"
+        _groupHover={{ color: "rgba(94, 236, 191, 0.18)" }}
+        userSelect="none"
+        pointerEvents="none"
+      >
+        {String(index + 1).padStart(2, "0")}
+      </Box>
+
+      <Flex align="center" gap={2} mb={5} position="relative">
+        <Heading
+          as="h3"
+          fontSize={["md", "md", "lg"]}
+          fontWeight={600}
+          color="gray.100"
+          letterSpacing="0.01em"
+        >
+          {title}
+        </Heading>
+        <Text
+          fontFamily="'PT Mono', monospace"
+          fontSize="10px"
+          fontWeight={700}
+          color="gray.500"
+          bg="whiteAlpha.50"
+          borderRadius="full"
+          px={2}
+          py="2px"
+        >
+          {items.length}
+        </Text>
+      </Flex>
+
+      <Flex wrap="wrap" gap={2} position="relative">
+        {items.map(({ title: skillTitle, image }, chipIndex) => (
+          <Box key={`${skillTitle}-${chipIndex}`} className="skill-chip">
+            <Skill text={skillTitle} image={image} />
+          </Box>
+        ))}
+      </Flex>
+    </Box>
+  );
+};
 
 const Skills = () => {
-  const Lenguaje = [
-    {
-      title: "HTML",
-      image: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
-    },
-    {
-      title: "CSS",
-      image: "https://cdn-icons-png.flaticon.com/512/732/732190.png",
-    },
-    {
-      title: "SCSS",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png",
-    },
-    {
-      title: "JavaScript",
-      image: "https://cdn-icons-png.flaticon.com/512/5968/5968292.png",
-    },
-    {
-      title: "PHP",
-      image: "https://cdn-icons-png.flaticon.com/512/5968/5968332.png",
-    },
-  ];
+  const stats = useMemo(() => {
+    const totalTools = skillSections.reduce((sum, section) => sum + section.items.length, 0);
 
-  const Libraries = [
-    {
-      title: "React",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
-    },
-    {
-      title: "Nextjs",
-      image:
-        "https://cdn.aglty.io/bwql7jyk/Attachments/NewItems/image_20211214122557_0.png",
-    },
-    {
-      title: "Chakra",
-      image: "https://avatars.githubusercontent.com/u/54212428?s=280&v=4",
-    },
-    {
-      title: "Bootstrap",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png",
-    },
-    {
-      title: "Node",
-      image: "https://midu.dev/images/tags/node.png",
-    },
-    {
-      title: "Jquery",
-      image:
-        "https://blog.kakaocdn.net/dn/cP4qHo/btqCDkoCask/KeloVPIlvZQxDoOHw2x2r0/img.png",
-    },
-  ];
-
-  const Tools = [
-    {
-      title: "Wordpress",
-      image: "https://cdn-icons-png.flaticon.com/512/174/174881.png",
-    },
-    {
-      title: "Github",
-      image: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
-    },
-    {
-      title: "Webpack",
-      image:
-        "https://seeklogo.com/images/W/webpack-logo-9E66EE203A-seeklogo.com.png",
-    },
-    {
-      title: "NPM",
-      image:
-        "https://cdn.iconscout.com/icon/free/png-256/npm-3521612-2945056.png",
-    },
-  ];
+    return [
+      { label: "Toolbox", value: `${totalTools}+`, sub: "tools & technologies", tone: "solid" },
+      { label: "Categories", value: `${skillSections.length}`, sub: "areas of focus", tone: "outline" },
+      { label: "AI tools", value: `${skillIcons.aiTools.length}`, sub: "in daily rotation", tone: "muted" },
+      { label: "Core stack", value: "WP + React", sub: "where I live day to day", tone: "accent" },
+    ];
+  }, []);
 
   return (
     <Element name="skills">
-      <Box py={"60px"} px={[0, 0, "90px"]}>
-        {/* <Divider /> */}
-        <Heading fontSize={"5xl"} color="gray.100" textAlign={"center"}>
-          Skills
-        </Heading>
-        {/* <Divider /> */}
-        <Text
-          lineHeight={"35px"}
-          letterSpacing="0.2px"
-          fontSize={"18px"}
-          textAlign="center"
-          color="gray.300"
-          pb={"20px"}
-          pt={3}
-        >
-          Here are a few technologies I've been working with recently:
-        </Text>
+      <Box py={SECTION_PY} px={[0, 0, "40px"]}>
+        <GsapSectionTitle>Skills</GsapSectionTitle>
 
-        <Stack direction={"column"} py={3} spacing={"35px"}>
-          <Box>
-            <Heading
-              color={"gray.200"}
-              fontSize={"xl"}
-              fontWeight={600}
-              py={5}
-              textAlign={["center", "center", "start"]}
-            >
-              Programming Lenguaje
-            </Heading>
-            <Flex
-              justifyContent={["center", "center", "start"]}
-              gap={2}
-              maxW="100%"
-              wrap={"wrap"}
-            >
-              {Lenguaje.map(({ title, image }, index) => (
-                <Skill key={index} text={title} image={image} />
-              ))}
-            </Flex>
-          </Box>
-        </Stack>
+        <GsapReveal variant="fadeUp" delay={0.05}>
+          <Eyebrow>Tech stack</Eyebrow>
+        </GsapReveal>
 
-        <Stack direction={"column"} py={3} spacing={"35px"}>
-          <Box>
-            <Heading
-              color={"gray.200"}
-              fontSize={"xl"}
-              fontWeight={600}
-              textAlign={["center", "center", "start"]}
-              py={5}
-            >
-              Libraries & Frameworks
-            </Heading>
-            <Flex
-              justifyContent={["center", "center", "start"]}
-              gap={2}
-              maxW="100%"
-              wrap={"wrap"}
-            >
-              {Libraries.map(({ title, image }, index) => (
-                <Skill key={index} text={title} image={image} />
-              ))}
-            </Flex>
-          </Box>
-        </Stack>
-        <Stack direction={"column"} py={3} spacing={"35px"}>
-          <Box>
-            <Heading
-              color={"gray.200"}
-              fontSize={"xl"}
-              fontWeight={600}
-              textAlign={["center", "center", "start"]}
-              py={5}
-            >
-              Tools & Platforms
-            </Heading>
-            <Flex
-              justifyContent={["center", "center", "start"]}
-              gap={2}
-              maxW="100%"
-              wrap={"wrap"}
-            >
-              {Tools.map(({ title, image }, index) => (
-                <Skill key={index} text={title} image={image} />
-              ))}
-            </Flex>
-          </Box>
-        </Stack>
+        <GsapReveal variant="fadeUp" delay={0.1}>
+          <Text
+            fontFamily="'Fraunces', serif"
+            fontWeight={500}
+            lineHeight="1.35"
+            fontSize={["22px", "22px", "28px"]}
+            textAlign="center"
+            color="gray.300"
+            maxW="640px"
+            mx="auto"
+            pb="8px"
+          >
+            Technologies I reach for to build and{" "}
+            <Text as="span" fontStyle="italic" color="primary">
+              ship
+            </Text>{" "}
+            fast.
+          </Text>
+        </GsapReveal>
+
+        <GsapReveal variant="fadeUp" delay={0.18}>
+          <SimpleGrid
+            columns={{ base: 2, md: 4 }}
+            spacing={{ base: 3, md: 4 }}
+            pt={8}
+            pb={{ base: "24px", md: "32px" }}
+            maxW="820px"
+            mx="auto"
+          >
+            {stats.map((stat) => (
+              <StatCard key={stat.label} {...stat} />
+            ))}
+          </SimpleGrid>
+        </GsapReveal>
+
+        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6}>
+          {skillSections.map((section, index) => (
+            <SkillCategory
+              key={section.title}
+              title={section.title}
+              items={section.items}
+              index={index}
+            />
+          ))}
+        </SimpleGrid>
       </Box>
     </Element>
   );

@@ -2,18 +2,21 @@
  * External dependencies
  */
 import React from "react";
-import { Stack, Text, Box, Heading, Flex } from "@chakra-ui/react";
-import Project from "../Components/Project";
-import MainProject from "../Components/MainProject";
+import { Stack, Text, Box, Heading, SimpleGrid } from "@chakra-ui/react";
 import { Element } from "react-scroll";
 
 /**
  * Internal dependencies
  */
-
+import Project from "../Components/Project";
+import MainProject from "../Components/MainProject";
+import Eyebrow from "../Components/Eyebrow";
 import Pokedex from "../../assets/pokedex.jpg";
 import Todo from "../../assets/todo.jpg";
 import Store from "../../assets/store.jpg";
+import GsapSectionTitle from "../Components/animations/GsapSectionTitle";
+import GsapReveal from "../Components/animations/GsapReveal";
+import { SECTION_PY, SECTION_GAP } from "../constants/layout";
 
 const Projects = () => {
   const mainProjects = [
@@ -99,70 +102,80 @@ const Projects = () => {
 
   return (
     <Element name="projects">
-      <Stack py={"120px"} direction={"column"} spacing={"60px"}>
+      <Stack py={SECTION_PY} direction="column" spacing={SECTION_GAP}>
         <Box>
-          <Heading
-            display={"block"}
-            w={"100%"}
-            pb={3}
-            fontSize={"5xl"}
-            color="gray.100"
-            textAlign={"center"}
-          >
-            Latest Projects
-          </Heading>
+          <GsapSectionTitle pb={3}>Latest Projects</GsapSectionTitle>
 
-          <Text
-            lineHeight={"35px"}
-            letterSpacing="0.2px"
-            fontSize={"18px"}
-            textAlign="center"
-            color="gray.300"
-            pb={[3, 3, "80px"]}
-            pt={3}
-            maxW="800px"
-            mx="auto"
-            px={[0, 0, "50px"]}
-          >
-            Here is the list of projects I do personally. from the new to the
-            old. most were created to learn technologies and tools new.
-          </Text>
-          <Stack direction={"column"} py={6} spacing={"50px"}>
-            {mainProjects.map(({ title, desc, image, url, repo }) => (
-              <MainProject
+          <GsapReveal variant="fadeUp" delay={0.1}>
+            <Text
+              lineHeight="35px"
+              letterSpacing="0.2px"
+              fontSize="18px"
+              textAlign="center"
+              color="gray.300"
+              pb={[2, 2, "32px"]}
+              pt={0}
+              maxW="800px"
+              mx="auto"
+              px={[0, 0, "50px"]}
+            >
+              Here is the list of projects I do personally. from the new to the
+              old. most were created to learn technologies and tools new.
+            </Text>
+          </GsapReveal>
+
+          <Stack direction="column" py={4} spacing={{ base: "32px", md: "40px" }}>
+            {mainProjects.map(({ title, desc, image, url, repo }, index) => (
+              <GsapReveal
                 key={title}
-                image={image}
-                direction="r"
-                desc={desc}
-                url={url}
-                repo={repo}
-                title={title}
-              />
+                variant={index % 2 === 0 ? "slideLeft" : "slideRight"}
+                duration={1.1}
+              >
+                <MainProject
+                  image={image}
+                  direction="r"
+                  desc={desc}
+                  url={url}
+                  repo={repo}
+                  title={title}
+                />
+              </GsapReveal>
             ))}
           </Stack>
         </Box>
 
-        <Box pt={"100px"}>
-          <Heading
-            textAlign={"center"}
-            pb={"40px"}
-            fontSize={"4xl"}
-            color="gray.200"
-          >
-            Other Noteworthy Projects
-          </Heading>
+        <Box pt={SECTION_GAP}>
+          <GsapReveal variant="fadeUp">
+            <Eyebrow>Side projects</Eyebrow>
+          </GsapReveal>
 
-          <Flex wrap={"wrap"} gap={7} py={6} px={["10px", "10px", 0]}>
-            {miniProjects.map(({ title, desc, link, repo }, index) => (
-              <Project
-                key={index}
-                title={title}
-                link={link}
-                desc={desc}
-                repo={repo}
-              />
-            ))}
-          </Flex>
+          <Box overflow="hidden" pb="24px">
+            <GsapReveal variant="clipUp">
+              <Heading textAlign="center" fontSize="4xl" color="gray.200">
+                Other Noteworthy Projects
+              </Heading>
+            </GsapReveal>
+          </Box>
+
+          <GsapReveal variant="fadeUp" stagger={0.08}>
+            <SimpleGrid
+              columns={{ base: 1, md: 2, lg: 3 }}
+              spacing={7}
+              py={4}
+              px={["10px", "10px", 0]}
+            >
+              {miniProjects.map(({ title, desc, link, repo }, index) => (
+                <Project
+                  key={title}
+                  title={title}
+                  link={link}
+                  desc={desc}
+                  repo={repo}
+                  index={index}
+                />
+              ))}
+            </SimpleGrid>
+          </GsapReveal>
         </Box>
       </Stack>
     </Element>

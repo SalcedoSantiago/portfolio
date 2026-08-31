@@ -47,5 +47,4 @@ const StickyRight = () => {
         </Box>
     )
 }
-
 export default StickyRight

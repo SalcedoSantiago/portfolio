@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import { Container, Stack, Box, } from '@chakra-ui/react'
+import { Link as RouterLink } from 'react-router-dom'
 
 /**
  * Internal dependencies
@@ -27,12 +28,16 @@ const Header = () => {
                 <Stack
                     direction={'row'}
                     justifyContent="space-between"
-                    py={['30px', '30px', '40px']}
+                    py={['24px', '24px', '32px']}
                     px={[0, 0, 0]}
                     align='center'
                 >
                     <Box
+                        as={RouterLink}
+                        to="/"
                         fontSize="20px"
+                        transition="transform 0.2s"
+                        _hover={{ transform: 'scale(1.05)' }}
                     >
                         <LogoMe />
                     </Box>

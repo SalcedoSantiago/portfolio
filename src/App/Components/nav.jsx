@@ -1,8 +1,9 @@
 /**
  * External dependencies
  */
-import { Stack, Text, Button, } from '@chakra-ui/react';
-import { Link as LinkR } from 'react-scroll'
+import { Stack, Text, Button } from '@chakra-ui/react';
+import { Link as LinkR } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 /**
@@ -13,7 +14,7 @@ import urlResumen from '../../assets/Santiago-salcedo-cv.pdf'
 
 const Nav = () => {
 
-    const links = ['home', 'about', 'skills', 'projects', 'contact'];
+    const links = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
 
     const Link = styled(LinkR)`
      text-decoration: none!important;
@@ -58,9 +59,8 @@ const Nav = () => {
                 </Text >
             )}
             <Button
-                as="a"
-                href={urlResumen}
-                download={true}
+                as={RouterLink}
+                to="/resume"
                 my={3}
                 px={'30px'}
                 variant="primary"
@@ -71,6 +71,25 @@ const Nav = () => {
                 w={['70%', '70%', 'auto']}
             >
                 Resume
+            </Button>
+            <Button
+                as="a"
+                href={urlResumen}
+                download={true}
+                my={3}
+                px={'20px'}
+                variant="outline"
+                borderColor="primary"
+                color="primary"
+                borderRadius={'3px'}
+                transition="all 0.2s ease"
+                fontSize={['18px', '18px', "14px"]}
+                fontWeight={400}
+                w={['70%', '70%', 'auto']}
+                display={['none', 'none', 'inline-flex']}
+                _hover={{ bg: 'whiteAlpha.100' }}
+            >
+                PDF
             </Button>
         </Stack>
     )

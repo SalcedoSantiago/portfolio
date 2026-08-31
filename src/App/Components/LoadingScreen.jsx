@@ -2,20 +2,22 @@
  * External dependencies
  */
 import React, { useRef } from "react";
-import { Stack, Box } from "@chakra-ui/react";
+import { Stack, Box, Text, VisuallyHidden } from "@chakra-ui/react";
 import { useGSAP } from "@gsap/react";
 
 /**
  * Internal dependencies
  */
 import LogoMe from "./logo";
-import { gsap } from "./animations/gsapSetup";
+import { gsap, prefersReducedMotion } from "./animations/gsapSetup";
 
 const LoadingScreen = () => {
   const containerRef = useRef(null);
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return;
+
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
 
       tl.to(".loader-bar", {
@@ -23,11 +25,15 @@ const LoadingScreen = () => {
         duration: 0.9,
         ease: "power2.inOut",
         transformOrigin: "left center",
-      }).to(".loader-logo", {
-        scale: 1.08,
-        duration: 0.9,
-        ease: "power2.inOut",
-      }, 0);
+      }).to(
+        ".loader-logo",
+        {
+          scale: 1.08,
+          duration: 0.9,
+          ease: "power2.inOut",
+        },
+        0
+      );
 
       gsap.from(".loader-logo", {
         opacity: 0,
@@ -51,6 +57,9 @@ const LoadingScreen = () => {
   return (
     <Stack
       ref={containerRef}
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
       h="100vh"
       w="100vw"
       align="center"
@@ -58,7 +67,8 @@ const LoadingScreen = () => {
       spacing={6}
       bg="#121212"
     >
-      <Box className="loader-logo">
+      <VisuallyHidden>Loading portfolio…</VisuallyHidden>
+      <Box className="loader-logo" aria-hidden="true">
         <LogoMe />
       </Box>
       <Box
@@ -68,6 +78,7 @@ const LoadingScreen = () => {
         bg="gray.700"
         borderRadius="full"
         overflow="hidden"
+        aria-hidden="true"
       >
         <Box
           className="loader-bar"

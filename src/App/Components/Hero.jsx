@@ -20,7 +20,7 @@ import { useGSAP } from "@gsap/react";
  * Internal dependencies
  */
 import Me from "../../assets/yo.png";
-import { gsap } from "./animations/gsapSetup";
+import { gsap, prefersReducedMotion } from "./animations/gsapSetup";
 import { SplitChars, SplitWords } from "./animations/SplitText";
 
 const ScrollLink = styled(LinkR)`
@@ -32,6 +32,11 @@ const ScrollLink = styled(LinkR)`
   &:hover {
     color: var(--chakra-colors-primary);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--chakra-colors-primary);
+    outline-offset: 3px;
+  }
 `;
 
 const Hero = () => {
@@ -41,6 +46,8 @@ const Hero = () => {
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return;
+
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
       tl.from(".hero-greeting", { y: 50, opacity: 0, duration: 0.9 }, 0.15)
@@ -92,6 +99,8 @@ const Hero = () => {
   return (
     <Element name="home">
       <Stack
+        as="section"
+        aria-label="Introduction"
         ref={heroRef}
         direction="column"
         justifyContent="center"
@@ -106,15 +115,14 @@ const Hero = () => {
         >
           <Box w={["100%", "100%", "60%"]} py={["40px", 10, 4]}>
             <Stack direction="column" spacing={0}>
-              <Heading
+              <Text
                 className="hero-greeting"
-                as="h1"
                 fontWeight={600}
                 color="gray.300"
                 fontSize={["2xl", "2xl", "4xl"]}
               >
-                Hello, i am
-              </Heading>
+                Hello, I am
+              </Text>
 
               <Heading
                 as="h1"
@@ -128,6 +136,7 @@ const Hero = () => {
 
               <Heading
                 className="hero-subtitle"
+                as="h2"
                 fontWeight={600}
                 fontSize={["2xl", "2xl", "4xl"]}
                 color="primary"
@@ -161,6 +170,11 @@ const Hero = () => {
                 justifyContent={["center", "center", "start"]}
               >
                 <Button
+                  as={ScrollLink}
+                  to="contact"
+                  smooth
+                  duration={500}
+                  spy={false}
                   my={3}
                   px="50px"
                   variant="primary"
@@ -168,45 +182,67 @@ const Hero = () => {
                   fontSize="16px"
                   fontWeight={400}
                   w={["100%", "100%", "auto"]}
-                  _hover={{ transform: "scale(1.04)" }}
+                  cursor="pointer"
+                  _hover={{ transform: "scale(1.04)", textDecoration: "none" }}
+                  _focusVisible={{
+                    outline: "2px solid",
+                    outlineColor: "primary",
+                    outlineOffset: "3px",
+                  }}
                   transition="transform 0.25s ease"
                 >
-                  <ScrollLink to="contact" smooth={true} duration={500}>
-                    Get in touch
-                  </ScrollLink>
+                  Get in touch
                 </Button>
               </Flex>
 
               <Stack
+                as="nav"
+                aria-label="Quick links"
                 direction="row"
                 spacing="30px"
                 pt={["40px", "40px", 16]}
                 justifyContent={["center", "center", "start"]}
               >
-                <ScrollLink to="projects" smooth={true} duration={500}>
-                  <Box className="hero-nav-link" cursor="pointer" _hover={{ color: "primary" }}>
-                    <Heading fontSize={["xl", "xl", "lg"]} pb={2}>
-                      Projects
-                    </Heading>
-                  </Box>
+                <ScrollLink to="projects" smooth duration={500} offset={-80}>
+                  <Text
+                    className="hero-nav-link"
+                    cursor="pointer"
+                    fontSize={["xl", "xl", "lg"]}
+                    fontWeight={600}
+                    pb={2}
+                    _hover={{ color: "primary" }}
+                  >
+                    Projects
+                  </Text>
                 </ScrollLink>
 
-                <Divider orientation="vertical" h="15px" />
-                <ScrollLink to="experience" smooth={true} duration={500}>
-                  <Box className="hero-nav-link" cursor="pointer" _hover={{ color: "primary" }}>
-                    <Heading fontSize={["xl", "xl", "lg"]} pb={2}>
-                      Experience
-                    </Heading>
-                  </Box>
+                <Divider orientation="vertical" h="15px" aria-hidden="true" />
+                <ScrollLink to="experience" smooth duration={500} offset={-80}>
+                  <Text
+                    className="hero-nav-link"
+                    cursor="pointer"
+                    fontSize={["xl", "xl", "lg"]}
+                    fontWeight={600}
+                    pb={2}
+                    _hover={{ color: "primary" }}
+                  >
+                    Experience
+                  </Text>
                 </ScrollLink>
 
-                <Divider orientation="vertical" h="15px" />
-                <ScrollLink to="about" smooth={true} duration={500}>
-                  <Box className="hero-nav-link" cursor="pointer" _hover={{ color: "primary" }} pl={3}>
-                    <Heading fontSize={["xl", "xl", "lg"]} pb={2}>
-                      About me
-                    </Heading>
-                  </Box>
+                <Divider orientation="vertical" h="15px" aria-hidden="true" />
+                <ScrollLink to="about" smooth duration={500} offset={-80}>
+                  <Text
+                    className="hero-nav-link"
+                    cursor="pointer"
+                    fontSize={["xl", "xl", "lg"]}
+                    fontWeight={600}
+                    pb={2}
+                    pl={3}
+                    _hover={{ color: "primary" }}
+                  >
+                    About me
+                  </Text>
                 </ScrollLink>
               </Stack>
             </Stack>
@@ -222,11 +258,11 @@ const Hero = () => {
               <Image
                 boxSize="100%"
                 position="relative"
-                zIndex={9999}
+                zIndex={2}
                 borderRadius="9999px"
                 objectFit="cover"
                 src={Me}
-                alt="Santiago Salcedo"
+                alt="Portrait of Santiago Salcedo"
                 transition="transform 0.4s ease"
                 _hover={{ transform: "scale(1.04)" }}
               />
@@ -239,6 +275,7 @@ const Hero = () => {
                 position="absolute"
                 bottom={1}
                 left={0}
+                aria-hidden="true"
               />
             </Box>
           </Box>

@@ -59,7 +59,8 @@ const Skill = ({ text, image = "" }) => {
           boxSize="20px"
           objectFit="contain"
           src={image || "https://cdn-icons-png.flaticon.com/512/732/732212.png"}
-          alt={text}
+          alt=""
+          aria-hidden="true"
         />
       </Flex>
       <Text fontSize="sm" fontWeight={500} color="gray.200" whiteSpace="nowrap">

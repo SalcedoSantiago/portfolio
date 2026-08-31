@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 /**
  * Internal dependencies
  */
-import { gsap } from "./gsapSetup";
+import { gsap, prefersReducedMotion } from "./gsapSetup";
 import { TITLE_PY } from "../../constants/layout";
 
 const GsapSectionTitle = ({ children, textAlign = "center", ...props }) => {
@@ -17,6 +17,8 @@ const GsapSectionTitle = ({ children, textAlign = "center", ...props }) => {
 
   useGSAP(
     () => {
+      if (prefersReducedMotion() || !titleRef.current) return;
+
       gsap.from(titleRef.current, {
         yPercent: 110,
         opacity: 0,
@@ -25,7 +27,7 @@ const GsapSectionTitle = ({ children, textAlign = "center", ...props }) => {
         scrollTrigger: {
           trigger: wrapRef.current,
           start: "top 88%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       });
     },
@@ -34,7 +36,13 @@ const GsapSectionTitle = ({ children, textAlign = "center", ...props }) => {
 
   return (
     <Box ref={wrapRef} overflow="hidden" textAlign={textAlign} py={TITLE_PY}>
-      <Heading ref={titleRef} fontSize="5xl" color="gray.100" {...props}>
+      <Heading
+        ref={titleRef}
+        as="h2"
+        fontSize="5xl"
+        color="gray.100"
+        {...props}
+      >
         {children}
       </Heading>
     </Box>

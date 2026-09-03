@@ -74,6 +74,8 @@ export const SplitWords = ({
   useGSAP(
     () => {
       if (!trigger || prefersReducedMotion()) return;
+
+      const words = containerRef.current?.querySelectorAll(".split-word-inner");
       if (!words?.length) return;
 
       gsap.from(words, {

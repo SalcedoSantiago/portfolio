@@ -268,6 +268,7 @@ const Hero = () => {
                 maxW="100%"
                 zIndex={2}
                 objectFit="contain"
+                borderBottomRadius="140px"
                 src={Me}
                 alt={t("hero.portraitAlt")}
                 transition="transform 0.4s ease"

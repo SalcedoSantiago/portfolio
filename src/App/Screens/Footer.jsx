@@ -5,8 +5,10 @@ import { Stack, Text, Flex, Box, Container } from "@chakra-ui/react";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import LogoMe from "../Components/logo";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   return (
     <Box as="footer">
       <Container maxW="5xl" py="32px">
@@ -23,12 +25,12 @@ const Footer = () => {
             textAlign="center"
             pb="20px"
           >
-            Thanks for scrolling, that's all folks.
+            {t("footer.thanks")}
           </Text>
 
           <Stack
             as="nav"
-            aria-label="Footer social links"
+            aria-label={t("footer.socialAria")}
             direction="row"
             justifyContent="center"
             align="center"
@@ -40,7 +42,7 @@ const Footer = () => {
               href="https://github.com/SalcedoSantiago"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub (opens in a new tab)"
+              aria-label={t("common.githubNewTab")}
               color="gray.400"
               fontSize="24px"
               _hover={{ color: "primary" }}
@@ -53,7 +55,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/santiago-dalmiro-salcedo/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn (opens in a new tab)"
+              aria-label={t("common.linkedinNewTab")}
               color="gray.400"
               fontSize="24px"
               _hover={{ color: "primary" }}
@@ -63,7 +65,7 @@ const Footer = () => {
             <Box
               as="a"
               href="mailto:santiagosalcedod@gmail.com"
-              aria-label="Email Santiago Salcedo"
+              aria-label={t("common.emailSantiago")}
               color="gray.400"
               fontSize="24px"
               _hover={{ color: "primary" }}
@@ -81,7 +83,7 @@ const Footer = () => {
             textAlign="center"
             pt={3}
           >
-            Built by{" "}
+            {t("footer.builtBy")}{" "}
             <Box
               as="a"
               href="https://www.linkedin.com/in/santiago-dalmiro-salcedo/"

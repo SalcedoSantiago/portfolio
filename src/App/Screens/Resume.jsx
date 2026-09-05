@@ -30,6 +30,8 @@ import {
 } from "../../data/resumeData";
 import AnimatedSection from "../Components/animations/AnimatedSection";
 import { MotionBox } from "../Components/animations/motionComponents";
+import LangSwitcher from "../Components/LangSwitcher";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const ResumeSection = ({ title, children, delay = 0 }) => (
   <AnimatedSection delay={delay} mb={8}>
@@ -50,7 +52,7 @@ const ResumeSection = ({ title, children, delay = 0 }) => (
   </AnimatedSection>
 );
 
-const ResumeJob = ({ job, index }) => (
+const ResumeJob = ({ job, index, lang }) => (
   <AnimatedSection delay={0.1 * index} mb={6}>
     <Flex
       direction={["column", "column", "row"]}
@@ -68,11 +70,11 @@ const ResumeJob = ({ job, index }) => (
         </Text>
       </Box>
       <Text fontSize="xs" color="#666" fontFamily="'PT Mono', monospace" whiteSpace="nowrap">
-        {job.period}
+        {lang === "es" ? job.periodEs || job.period : job.periodEn || job.period}
       </Text>
     </Flex>
     <List spacing={2} styleType="disc" pl={5}>
-      {job.pointsEs.map((point, i) => (
+      {(lang === "es" ? job.pointsEs : job.points).map((point, i) => (
         <ListItem key={i} fontSize="sm" color="#333" lineHeight="1.6">
           {point}
         </ListItem>
@@ -82,6 +84,9 @@ const ResumeJob = ({ job, index }) => (
 );
 
 const Resume = () => {
+  const { t, lang, localizedPath } = useLanguage();
+  const educationItems = t("resume.educationItems");
+  const skillTitles = t("resume.skillTitles");
   return (
     <Box minH="100vh" bg="#121212" py={["24px", "40px", "60px"]}>
       <Container maxW="960px">
@@ -89,26 +94,29 @@ const Resume = () => {
           <Flex justify="space-between" align="center" wrap="wrap" gap={3}>
             <Button
               as={RouterLink}
-              to="/"
+              to={localizedPath("/")}
               leftIcon={<FaArrowLeft />}
               variant="ghost"
               color="gray.300"
               _hover={{ color: "primary", bg: "whiteAlpha.100" }}
               size="sm"
             >
-              Back to portfolio
+              {t("resume.back")}
             </Button>
-            <Button
-              as="a"
-              href={personalInfo.resumePdf}
-              download
-              leftIcon={<FaDownload />}
-              variant="primary"
-              size="sm"
-              borderRadius="3px"
-            >
-              Download PDF
-            </Button>
+            <Flex gap={3} align="center">
+              <LangSwitcher />
+              <Button
+                as="a"
+                href={personalInfo.resumePdf}
+                download
+                leftIcon={<FaDownload />}
+                variant="primary"
+                size="sm"
+                borderRadius="3px"
+              >
+                {t("resume.download")}
+              </Button>
+            </Flex>
           </Flex>
         </AnimatedSection>
 
@@ -176,18 +184,18 @@ const Resume = () => {
             >
               {/* Left column: Experience + Education */}
               <Box pr={[0, 0, 8]} borderRight={[0, 0, "1px solid"]} borderColor="gray.200">
-                <ResumeSection title="Experiencia relevante" delay={0.1}>
+                <ResumeSection title={t("resume.experience")} delay={0.1}>
                   {experience.map((job, index) => (
-                    <ResumeJob key={job.company} job={job} index={index} />
+                    <ResumeJob key={job.company} job={job} index={index} lang={lang} />
                   ))}
                 </ResumeSection>
 
-                <ResumeSection title="Educación" delay={0.3}>
+                <ResumeSection title={t("resume.education")} delay={0.3}>
                   <Stack spacing={4}>
                     {education.map((item, index) => (
                       <AnimatedSection key={index} delay={0.05 * index}>
                         <Text fontWeight={700} fontSize="sm" color="#1a1a1a">
-                          {item.degree}
+                          {educationItems[index]?.degree || item.degree}
                         </Text>
                         {item.institution && (
                           <Text fontSize="sm" color="#555">
@@ -195,7 +203,7 @@ const Resume = () => {
                           </Text>
                         )}
                         <Text fontSize="xs" color="#666" fontFamily="'PT Mono', monospace">
-                          {item.period}
+                          {educationItems[index]?.period || item.period}
                         </Text>
                       </AnimatedSection>
                     ))}
@@ -205,7 +213,7 @@ const Resume = () => {
 
               {/* Right column: Skills */}
               <Box pl={[0, 0, 8]} pt={[8, 8, 0]}>
-                <ResumeSection title="Habilidades" delay={0.2}>
+                <ResumeSection title={t("resume.skills")} delay={0.2}>
                   <Stack spacing={6}>
                     {skillCategories.map((category, index) => (
                       <AnimatedSection key={category.title} delay={0.08 * index}>
@@ -217,7 +225,14 @@ const Resume = () => {
                           color="#007D57"
                           mb={2}
                         >
-                          {category.title}
+                          {
+                            [
+                              skillTitles.ai,
+                              skillTitles.languages,
+                              skillTitles.libraries,
+                              skillTitles.tools,
+                            ][index] || category.title
+                          }
                         </Text>
                         <Flex wrap="wrap" gap={2}>
                           {category.items.map((skill) => (

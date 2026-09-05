@@ -13,9 +13,11 @@ import {
 } from "@chakra-ui/react";
 import { FaBars } from "react-icons/fa";
 import Nav from "./nav";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const MenuMobile = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { t } = useLanguage();
 
   return (
     <Box display={["block", "block", "none"]}>
@@ -23,7 +25,7 @@ const MenuMobile = () => {
         variant="ghost"
         color="gray.200"
         onClick={onOpen}
-        aria-label="Open navigation menu"
+        aria-label={t("nav.openMenu")}
         aria-expanded={isOpen}
         aria-controls="mobile-nav-drawer"
         _focusVisible={{
@@ -43,7 +45,7 @@ const MenuMobile = () => {
         <DrawerOverlay />
         <DrawerContent bgColor="gray.800" id="mobile-nav-drawer">
           <DrawerCloseButton
-            aria-label="Close navigation menu"
+            aria-label={t("nav.closeMenu")}
             size="lg"
             color="gray.200"
             top="24px"
@@ -57,7 +59,7 @@ const MenuMobile = () => {
           <DrawerBody pt="80px">
             <Box
               as="nav"
-              aria-label="Mobile"
+              aria-label={t("nav.mobileAria")}
               onClick={(event) => {
                 if (event.target.closest("a")) {
                   onClose();

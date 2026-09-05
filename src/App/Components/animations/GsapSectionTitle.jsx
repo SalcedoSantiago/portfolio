@@ -10,10 +10,12 @@ import { useGSAP } from "@gsap/react";
  */
 import { gsap, prefersReducedMotion } from "./gsapSetup";
 import { TITLE_PY } from "../../constants/layout";
+import { useLanguage } from "../../../i18n/LanguageContext";
 
 const GsapSectionTitle = ({ children, textAlign = "center", ...props }) => {
   const wrapRef = useRef(null);
   const titleRef = useRef(null);
+  const { lang } = useLanguage();
 
   useGSAP(
     () => {
@@ -31,7 +33,7 @@ const GsapSectionTitle = ({ children, textAlign = "center", ...props }) => {
         },
       });
     },
-    { scope: wrapRef }
+    { scope: wrapRef, dependencies: [lang, children] }
   );
 
   return (

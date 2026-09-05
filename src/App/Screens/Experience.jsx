@@ -15,6 +15,7 @@ import GsapSectionTitle from "../Components/animations/GsapSectionTitle";
 import GsapReveal from "../Components/animations/GsapReveal";
 import { experience } from "../../data/resumeData";
 import { SECTION_PY } from "../constants/layout";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const parseStartYear = (period) => {
   const match = period.match(/(\d{4})/);
@@ -22,27 +23,49 @@ const parseStartYear = (period) => {
 };
 
 const Experience = () => {
+  const { t, lang } = useLanguage();
+
   const stats = useMemo(() => {
-    const startYears = experience.map((job) => parseStartYear(job.period)).filter(Boolean);
+    const startYears = experience.map((job) => parseStartYear(job.periodEn || job.period)).filter(Boolean);
     const earliest = startYears.length ? Math.min(...startYears) : new Date().getFullYear();
     const yearsCount = Math.max(1, new Date().getFullYear() - earliest);
     const stackSet = new Set(experience.flatMap((job) => job.stack || []));
 
     return [
-      { label: "Experience", value: `${yearsCount}+`, sub: "years shipping products", tone: "solid" },
-      { label: "Track record", value: `${experience.length}`, sub: "companies, zero gaps", tone: "outline" },
-      { label: "Toolbox", value: `${stackSet.size}+`, sub: "technologies in rotation", tone: "muted" },
-      { label: "Workflow", value: "AI-native", sub: "Claude + MCP in the loop", tone: "accent" },
+      {
+        label: t("experience.stats.experience.label"),
+        value: `${yearsCount}+`,
+        sub: t("experience.stats.experience.sub"),
+        tone: "solid",
+      },
+      {
+        label: t("experience.stats.trackRecord.label"),
+        value: `${experience.length}`,
+        sub: t("experience.stats.trackRecord.sub"),
+        tone: "outline",
+      },
+      {
+        label: t("experience.stats.toolbox.label"),
+        value: `${stackSet.size}+`,
+        sub: t("experience.stats.toolbox.sub"),
+        tone: "muted",
+      },
+      {
+        label: t("experience.stats.workflow.label"),
+        value: t("experience.stats.workflow.value"),
+        sub: t("experience.stats.workflow.sub"),
+        tone: "accent",
+      },
     ];
-  }, []);
+  }, [t]);
 
   return (
     <Element name="experience">
       <Box py={SECTION_PY}>
-        <GsapSectionTitle>Experience</GsapSectionTitle>
+        <GsapSectionTitle>{t("experience.title")}</GsapSectionTitle>
 
         <GsapReveal variant="fadeUp" delay={0.05}>
-          <Eyebrow>Career timeline</Eyebrow>
+          <Eyebrow>{t("experience.eyebrow")}</Eyebrow>
         </GsapReveal>
 
         <GsapReveal variant="fadeUp" delay={0.1}>
@@ -57,11 +80,11 @@ const Experience = () => {
             mx="auto"
             pb="8px"
           >
-            Where I've been{" "}
+            {t("experience.headlineBefore")}{" "}
             <Text as="span" fontStyle="italic" color="primary">
-              building
+              {t("experience.headlineAccent")}
             </Text>{" "}
-            products, professionally.
+            {t("experience.headlineAfter")}
           </Text>
         </GsapReveal>
 
@@ -85,6 +108,9 @@ const Experience = () => {
             <ExperienceItem
               key={job.company}
               {...job}
+              period={lang === "es" ? job.periodEs || job.period : job.periodEn || job.period}
+              points={lang === "es" ? job.pointsEs : job.points}
+              currentLabel={t("experience.current")}
               index={index}
               isLast={index === experience.length - 1}
             />

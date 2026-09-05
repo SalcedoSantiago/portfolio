@@ -5,32 +5,34 @@ import React from "react";
 import { Stack, Box, Divider } from "@chakra-ui/react";
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
-
-const socialLinks = [
-  {
-    href: "https://wa.me/541125709209?text=Hello!",
-    label: "WhatsApp (opens in a new tab)",
-    icon: FaWhatsapp,
-  },
-  {
-    href: "https://github.com/SalcedoSantiago",
-    label: "GitHub (opens in a new tab)",
-    icon: FaGithub,
-  },
-  {
-    href: "https://www.linkedin.com/in/santiago-dalmiro-salcedo/",
-    label: "LinkedIn (opens in a new tab)",
-    icon: FaLinkedinIn,
-  },
-  {
-    href: "mailto:santiagosalcedod@gmail.com",
-    label: "Email Santiago Salcedo",
-    icon: MdOutlineMail,
-    external: false,
-  },
-];
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const StickyLeft = () => {
+  const { t } = useLanguage();
+
+  const socialLinks = [
+    {
+      href: "https://wa.me/541125709209?text=Hello!",
+      label: t("common.whatsappNewTab"),
+      icon: FaWhatsapp,
+    },
+    {
+      href: "https://github.com/SalcedoSantiago",
+      label: t("common.githubNewTab"),
+      icon: FaGithub,
+    },
+    {
+      href: "https://www.linkedin.com/in/santiago-dalmiro-salcedo/",
+      label: t("common.linkedinNewTab"),
+      icon: FaLinkedinIn,
+    },
+    {
+      href: "mailto:santiagosalcedod@gmail.com",
+      label: t("common.emailSantiago"),
+      icon: MdOutlineMail,
+      external: false,
+    },
+  ];
   return (
     <Box
       as="aside"

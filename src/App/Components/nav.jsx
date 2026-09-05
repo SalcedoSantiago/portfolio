@@ -10,6 +10,8 @@ import styled from "styled-components";
  * Internal dependencies
  */
 import urlResumen from "../../assets/Santiago-salcedo-cv.pdf";
+import LangSwitcher from "./LangSwitcher";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const Link = styled(LinkR)`
   text-decoration: none !important;
@@ -28,6 +30,7 @@ const Link = styled(LinkR)`
 `;
 
 const Nav = () => {
+  const { t, localizedPath } = useLanguage();
   const links = ["home", "about", "experience", "skills", "projects", "contact"];
 
   return (
@@ -35,7 +38,6 @@ const Nav = () => {
       {links.map((link) => (
         <Text
           key={link}
-          textTransform="capitalize"
           fontSize={["24px", "24px", "18px"]}
           fontFamily="Jost"
           cursor="pointer"
@@ -45,13 +47,14 @@ const Nav = () => {
           _hover={{ color: "primary" }}
         >
           <Link to={link} smooth duration={500} offset={-80}>
-            {link}
+            {t(`nav.${link}`)}
           </Link>
         </Text>
       ))}
+      <LangSwitcher />
       <Button
         as={RouterLink}
-        to="/resume"
+        to={localizedPath("/resume")}
         my={3}
         px="30px"
         variant="primary"
@@ -61,7 +64,7 @@ const Nav = () => {
         fontWeight={400}
         w={["70%", "70%", "auto"]}
       >
-        Resume
+        {t("nav.resume")}
       </Button>
       <Button
         as="a"
@@ -78,10 +81,10 @@ const Nav = () => {
         fontWeight={400}
         w={["70%", "70%", "auto"]}
         display={["none", "none", "inline-flex"]}
-        aria-label="Download resume PDF"
+        aria-label={t("common.downloadPdf")}
         _hover={{ bg: "whiteAlpha.100" }}
       >
-        PDF
+        {t("nav.pdf")}
       </Button>
     </Stack>
   );

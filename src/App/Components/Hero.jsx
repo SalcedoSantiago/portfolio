@@ -19,7 +19,7 @@ import { useGSAP } from "@gsap/react";
 /**
  * Internal dependencies
  */
-import Me from "../../assets/yo.png";
+import Me from "../../assets/yo-nuevo.png";
 import { gsap, prefersReducedMotion } from "./animations/gsapSetup";
 import { SplitChars, SplitWords } from "./animations/SplitText";
 import { useLanguage } from "../../i18n/LanguageContext";
@@ -259,15 +259,19 @@ const Hero = () => {
           >
             <Box position="relative" height="400px" width="358px">
               <Image
-                boxSize="100%"
-                position="relative"
+                position="absolute"
+                bottom={0}
+                left="50%"
+                transform="translateX(-50%)"
+                height="100%"
+                width="auto"
+                maxW="100%"
                 zIndex={2}
-                borderRadius="9999px"
-                objectFit="cover"
+                objectFit="contain"
                 src={Me}
                 alt={t("hero.portraitAlt")}
                 transition="transform 0.4s ease"
-                _hover={{ transform: "scale(1.04)" }}
+                _hover={{ transform: "translateX(-50%) scale(1.04)" }}
               />
               <Box
                 ref={circleRef}

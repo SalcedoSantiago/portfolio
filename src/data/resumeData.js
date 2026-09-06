@@ -112,17 +112,17 @@ export const skillIcons = {
   libraries: [
     {
       title: "React",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
+      image: "https://api.iconify.design/simple-icons/react.svg?color=%2361DAFB",
     },
     {
       title: "Nextjs",
-      image: "https://cdn.aglty.io/bwql7jyk/Attachments/NewItems/image_20211214122557_0.png",
+      image: "https://api.iconify.design/simple-icons/nextdotjs.svg?color=%23FFFFFF",
     },
     { title: "Node", image: "https://midu.dev/images/tags/node.png" },
     { title: "Chakra", image: "https://avatars.githubusercontent.com/u/54212428?s=280&v=4" },
     {
       title: "Styled Components",
-      image: "https://www.vectorlogo.zone/logos/styled-components/styled-components-icon.svg",
+      image: "https://api.iconify.design/simple-icons/styledcomponents.svg?color=%23DB7093",
     },
     {
       title: "Tailwind",
@@ -131,7 +131,7 @@ export const skillIcons = {
     { title: "MUI", image: "https://mui.com/static/logo.png" },
     {
       title: "Bootstrap",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png",
+      image: "https://api.iconify.design/simple-icons/bootstrap.svg?color=%237952B3",
     },
     {
       title: "Jquery",

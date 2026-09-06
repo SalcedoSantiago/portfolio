@@ -259,19 +259,20 @@ const Hero = () => {
           >
             <Box position="relative" height="400px" width="358px">
               <Image
+                objectFit="contain"
                 position="absolute"
-                bottom={0}
-                left="50%"
+                bottom="0px"
+                left="170px"
                 transform="translateX(-50%)"
-                height="100%"
+                height="107%"
                 width="auto"
                 maxW="100%"
                 zIndex={2}
-                objectFit="contain"
-                borderBottomRadius="140px"
+                borderBottomLeftRadius="174px"
+                borderBottomRightRadius="140px"
                 src={Me}
                 alt={t("hero.portraitAlt")}
-                transition="transform 0.4s ease"
+                transition="transform 0.4s"
                 _hover={{ transform: "translateX(-50%) scale(1.04)" }}
               />
               <Box

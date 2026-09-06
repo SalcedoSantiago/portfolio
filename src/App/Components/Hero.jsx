@@ -19,9 +19,10 @@ import { useGSAP } from "@gsap/react";
 /**
  * Internal dependencies
  */
-import Me from "../../assets/yo.png";
+import Me from "../../assets/yo-nuevo.png";
 import { gsap, prefersReducedMotion } from "./animations/gsapSetup";
 import { SplitChars, SplitWords } from "./animations/SplitText";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const ScrollLink = styled(LinkR)`
   text-decoration: none !important;
@@ -43,6 +44,7 @@ const Hero = () => {
   const heroRef = useRef(null);
   const imageWrapRef = useRef(null);
   const circleRef = useRef(null);
+  const { t, lang } = useLanguage();
 
   useGSAP(
     () => {
@@ -100,7 +102,7 @@ const Hero = () => {
     <Element name="home">
       <Stack
         as="section"
-        aria-label="Introduction"
+        aria-label={t("hero.aria")}
         ref={heroRef}
         direction="column"
         justifyContent="center"
@@ -121,7 +123,7 @@ const Hero = () => {
                 color="gray.300"
                 fontSize={["2xl", "2xl", "4xl"]}
               >
-                Hello, I am
+                {t("hero.greeting")}
               </Text>
 
               <Heading
@@ -131,7 +133,7 @@ const Hero = () => {
                 lineHeight="1.05"
                 mt={1}
               >
-                <SplitChars text="Santiago Salcedo" delay={0.35} stagger={0.04} />
+                <SplitChars text={t("hero.name")} delay={0.35} stagger={0.04} />
               </Heading>
 
               <Heading
@@ -142,7 +144,7 @@ const Hero = () => {
                 color="primary"
                 mt={2}
               >
-                Full Stack Developer
+                {t("hero.title")}
               </Heading>
 
               <Box
@@ -156,7 +158,8 @@ const Hero = () => {
               >
                 <Text pb={2}>
                   <SplitWords
-                    text="I build scalable WordPress and React solutions, blending solid full stack fundamentals with AI-assisted development to ship faster."
+                    key={lang}
+                    text={t("hero.description")}
                     delay={0.9}
                     stagger={0.04}
                   />
@@ -191,7 +194,7 @@ const Hero = () => {
                   }}
                   transition="transform 0.25s ease"
                 >
-                  Get in touch
+                  {t("hero.cta")}
                 </Button>
               </Flex>
 
@@ -212,7 +215,7 @@ const Hero = () => {
                     pb={2}
                     _hover={{ color: "primary" }}
                   >
-                    Projects
+                    {t("hero.navProjects")}
                   </Text>
                 </ScrollLink>
 
@@ -226,7 +229,7 @@ const Hero = () => {
                     pb={2}
                     _hover={{ color: "primary" }}
                   >
-                    Experience
+                    {t("hero.navExperience")}
                   </Text>
                 </ScrollLink>
 
@@ -241,7 +244,7 @@ const Hero = () => {
                     pl={3}
                     _hover={{ color: "primary" }}
                   >
-                    About me
+                    {t("hero.navAbout")}
                   </Text>
                 </ScrollLink>
               </Stack>
@@ -256,15 +259,21 @@ const Hero = () => {
           >
             <Box position="relative" height="400px" width="358px">
               <Image
-                boxSize="100%"
-                position="relative"
+                objectFit="contain"
+                position="absolute"
+                bottom="0px"
+                left="170px"
+                transform="translateX(-50%)"
+                height="107%"
+                width="auto"
+                maxW="100%"
                 zIndex={2}
-                borderRadius="9999px"
-                objectFit="cover"
+                borderBottomLeftRadius="174px"
+                borderBottomRightRadius="140px"
                 src={Me}
-                alt="Portrait of Santiago Salcedo"
-                transition="transform 0.4s ease"
-                _hover={{ transform: "scale(1.04)" }}
+                alt={t("hero.portraitAlt")}
+                transition="transform 0.4s"
+                _hover={{ transform: "translateX(-50%) scale(1.04)" }}
               />
               <Box
                 ref={circleRef}

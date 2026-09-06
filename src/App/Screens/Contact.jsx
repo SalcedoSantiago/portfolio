@@ -13,9 +13,11 @@ import GsapSectionTitle from "../Components/animations/GsapSectionTitle";
 import GsapReveal from "../Components/animations/GsapReveal";
 import { gsap } from "../Components/animations/gsapSetup";
 import { SECTION_PY } from "../constants/layout";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const Contact = () => {
   const btnRef = useRef(null);
+  const { t } = useLanguage();
 
   useGSAP(
     () => {
@@ -46,7 +48,7 @@ const Contact = () => {
   return (
     <Element name="contact">
       <Stack py={SECTION_PY} justify="center" align="center" spacing={5}>
-        <GsapSectionTitle>Get in touch</GsapSectionTitle>
+        <GsapSectionTitle>{t("contact.title")}</GsapSectionTitle>
         <GsapReveal variant="fadeUp" delay={0.15}>
           <Text
             maxW={"600px"}
@@ -57,11 +59,12 @@ const Contact = () => {
             color="gray.300"
             pb="16px"
           >
-            I'm open to full-time roles, freelance projects and collaborations
-            in WordPress, React and AI-assisted development.
-            <br />
-            Whether you have a question or just want to say hi, I'll try my best
-            to get back to you!
+            {t("contact.body").split("\n").map((line, i, arr) => (
+              <React.Fragment key={i}>
+                {line}
+                {i < arr.length - 1 && <br />}
+              </React.Fragment>
+            ))}
           </Text>
         </GsapReveal>
 
@@ -79,7 +82,7 @@ const Contact = () => {
             onMouseEnter={handleEnter}
             onMouseLeave={handleLeave}
           >
-            Say Hello!
+            {t("contact.cta")}
           </Button>
         </Flex>
       </Stack>

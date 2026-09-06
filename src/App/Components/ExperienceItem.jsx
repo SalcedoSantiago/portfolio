@@ -35,9 +35,10 @@ const ExperienceItem = ({
   stack = [],
   index = 0,
   isLast = false,
+  currentLabel = "Current",
 }) => {
   const rowRef = useRef(null);
-  const isCurrent = /present/i.test(period);
+  const isCurrent = /present|presente/i.test(period);
 
   useGSAP(
     () => {
@@ -152,7 +153,7 @@ const ExperienceItem = ({
                       letterSpacing="0.06em"
                       textTransform="uppercase"
                     >
-                      Current
+                      {currentLabel}
                     </Text>
                   </Flex>
                 )}

@@ -10,9 +10,11 @@ import { useGSAP } from "@gsap/react";
  */
 import LogoMe from "./logo";
 import { gsap, prefersReducedMotion } from "./animations/gsapSetup";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const LoadingScreen = () => {
   const containerRef = useRef(null);
+  const { t } = useLanguage();
 
   useGSAP(
     () => {
@@ -67,7 +69,7 @@ const LoadingScreen = () => {
       spacing={6}
       bg="#121212"
     >
-      <VisuallyHidden>Loading portfolio…</VisuallyHidden>
+      <VisuallyHidden>{t("common.loading")}</VisuallyHidden>
       <Box className="loader-logo" aria-hidden="true">
         <LogoMe />
       </Box>

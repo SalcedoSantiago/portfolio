@@ -8,9 +8,11 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
  * Internal dependencies
  */
 import ImageProject from "./project/Image";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const MainProject = ({ direction = "r", image, desc, title, url, repo }) => {
   const urlSite = url || repo || "#";
+  const { t } = useLanguage();
 
   return (
     <Stack
@@ -54,7 +56,7 @@ const MainProject = ({ direction = "r", image, desc, title, url, repo }) => {
         </Heading>
 
         <Text fontSize="sm" pb={2} color="gray.400">
-          Website, App
+          {t("projects.type")}
         </Text>
         <Text color="gray.300" fontSize="md" lineHeight="25px" pb="20px">
           {desc}
@@ -73,7 +75,7 @@ const MainProject = ({ direction = "r", image, desc, title, url, repo }) => {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${title} — live site (opens in a new tab)`}
+              aria-label={`${title} — ${t("projects.liveAria")}`}
               color="gray.400"
               fontSize="20px"
               _hover={{ color: "primary" }}
@@ -92,7 +94,7 @@ const MainProject = ({ direction = "r", image, desc, title, url, repo }) => {
               href={repo}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${title} — GitHub repository (opens in a new tab)`}
+              aria-label={`${title} — ${t("projects.repoAria")}`}
               color="gray.400"
               fontSize="24px"
               _hover={{ color: "primary" }}

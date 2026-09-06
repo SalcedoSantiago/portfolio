@@ -17,27 +17,30 @@ import Store from "../../assets/store.jpg";
 import GsapSectionTitle from "../Components/animations/GsapSectionTitle";
 import GsapReveal from "../Components/animations/GsapReveal";
 import { SECTION_PY, SECTION_GAP } from "../constants/layout";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const Projects = () => {
+  const { t } = useLanguage();
+
   const mainProjects = [
     {
       title: "Pokedex",
       image: Pokedex,
-      desc: "Pokedex app is an application that consumes the pokeapi api, it shows more than 900 pokemons, it allows you to select the pokemons and see what their main characteristics are.",
+      desc: t("projects.main.pokedex"),
       url: "https://salcedosantiago.github.io/pokedex/",
       repo: "https://github.com/SalcedoSantiago/pokedex",
     },
     {
       title: "Todo App",
       image: Todo,
-      desc: 'TodoApp is an application made in react, which is designed to make task lists. allows you to edit and move each one. It also allows you to customize the colors of each "card".',
+      desc: t("projects.main.todo"),
       repo: "https://github.com/SalcedoSantiago/todo-app",
       url: "https://salcedosantiago.github.io/todo-app/",
     },
     {
       title: "Store App",
       image: Store,
-      desc: "It is a store, which allows you to simulate purchases of paintings, it has a cart that has to edit the quantity that is going to be purchased, it also contains filters that allow you to order them from lower and higher prices.",
+      desc: t("projects.main.store"),
       repo: "https://github.com/SalcedoSantiago/ecommerce-app",
       url: "https://salcedosantiago.github.io/ecommerce-app/",
     },
@@ -46,55 +49,55 @@ const Projects = () => {
   const miniProjects = [
     {
       title: "Store Coder",
-      desc: "is a store created for the coderhouse course,the store has pages and products.it is made with html, css, scss, and js.",
+      desc: t("projects.mini.storeCoder"),
       link: "https://salcedosantiago.github.io/store-coder/",
       repo: "https://github.com/SalcedoSantiago/store-coder",
     },
     {
       title: "Travel",
-      desc: "Travel is a landing page designed by https://www.arshakir.com/ this page was made with react, chakra ui and styledComponents.",
+      desc: t("projects.mini.travel"),
       link: "https://salcedosantiago.github.io/travel/",
       repo: "https://github.com/SalcedoSantiago/travel",
     },
     {
       title: "Portfolio v2",
-      desc: "this is my current portfolio, i created it in 2022 and here show the featured personal projects and about me",
+      desc: t("projects.mini.portfolioV2"),
       link: "https://salcedosantiago.github.io/Mi-portafolio/",
       repo: "https://github.com/SalcedoSantiago/Mi-portafolio",
     },
     {
       title: "Portfolio v1",
-      desc: "this was my first portfolio, i created it in 2019 and it was my beginnings in web development was created with html, js, jquery & css",
+      desc: t("projects.mini.portfolioV1"),
       link: "https://salcedosantiago.github.io/Mi-portafolio/",
       repo: "https://github.com/SalcedoSantiago/Mi-portafolio",
     },
     {
       title: "Blog cafe",
-      desc: "It was a project that Juan Pablo De la Torre Valdez included in the web development course.",
+      desc: t("projects.mini.course"),
       link: "https://salcedosantiago.github.io/blog-cafe/",
       repo: "https://github.com/SalcedoSantiago/blog-cafe",
     },
     {
       title: "Freelancer",
-      desc: "It was a project that Juan Pablo De la Torre Valdez included in the web development course.",
+      desc: t("projects.mini.course"),
       link: "https://salcedosantiago.github.io/freelancer/",
       repo: "https://github.com/SalcedoSantiago/freelancer",
     },
     {
       title: "Frontend",
-      desc: "It was a project that Juan Pablo De la Torre Valdez included in the web development course.",
+      desc: t("projects.mini.course"),
       link: "https://salcedosantiago.github.io/frontend/",
       repo: "https://github.com/SalcedoSantiago/frontend",
     },
     {
       title: "Bienes Raices",
-      desc: "It was a project that Juan Pablo De la Torre Valdez included in the web development course.",
+      desc: t("projects.mini.course"),
       link: "https://salcedosantiago.github.io/bienes-raices/",
       repo: "https://github.com/SalcedoSantiago/bienes-raices",
     },
     {
       title: "Viajes",
-      desc: "It was a project that Juan Pablo De la Torre Valdez included in the web development course.",
+      desc: t("projects.mini.course"),
       link: "https://salcedosantiago.github.io/viajes/",
       repo: "https://github.com/SalcedoSantiago/viajes",
     },
@@ -104,7 +107,7 @@ const Projects = () => {
     <Element name="projects">
       <Stack py={SECTION_PY} direction="column" spacing={SECTION_GAP}>
         <Box>
-          <GsapSectionTitle pb={3}>Latest Projects</GsapSectionTitle>
+          <GsapSectionTitle pb={3}>{t("projects.title")}</GsapSectionTitle>
 
           <GsapReveal variant="fadeUp" delay={0.1}>
             <Text
@@ -119,8 +122,7 @@ const Projects = () => {
               mx="auto"
               px={[0, 0, "50px"]}
             >
-              Here is the list of projects I do personally. from the new to the
-              old. most were created to learn technologies and tools new.
+              {t("projects.intro")}
             </Text>
           </GsapReveal>
 
@@ -146,13 +148,13 @@ const Projects = () => {
 
         <Box pt={SECTION_GAP}>
           <GsapReveal variant="fadeUp">
-            <Eyebrow>Side projects</Eyebrow>
+            <Eyebrow>{t("projects.sideEyebrow")}</Eyebrow>
           </GsapReveal>
 
           <Box overflow="hidden" pb="24px">
             <GsapReveal variant="clipUp">
               <Heading as="h2" textAlign="center" fontSize="4xl" color="gray.200">
-                Other Noteworthy Projects
+                {t("projects.otherTitle")}
               </Heading>
             </GsapReveal>
           </Box>

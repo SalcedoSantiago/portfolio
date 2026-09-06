@@ -20,9 +20,11 @@ import Hero from "../Components/Hero";
 import LoadingScreen from "../Components/LoadingScreen";
 import BackgroundOrbs from "../Components/animations/BackgroundOrbs";
 import { ScrollTrigger } from "../Components/animations/gsapSetup";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -67,7 +69,7 @@ const App = () => {
           outlineOffset: "2px",
         }}
       >
-        Skip to main content
+        {t("common.skip")}
       </Link>
 
       <BackgroundOrbs />

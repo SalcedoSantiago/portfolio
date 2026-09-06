@@ -14,7 +14,9 @@ export const experience = [
   {
     role: "Full Stack Developer",
     company: "Elevation",
-    period: "Octubre 2022 — Present",
+    periodEn: "October 2022 — Present",
+    periodEs: "Octubre 2022 — Presente",
+    period: "October 2022 — Present",
     pointsEs: [
       "Utilicé Claude integrado con MCP para agilizar el desarrollo de WordPress, generando y modificando bloques Gutenberg, temas y plugins personalizados directamente sobre el entorno de desarrollo.",
       "Utilicé herramientas de desarrollo asistido por IA para la generación de código, debugging, documentación y prototipado rápido, mejorando la eficiencia del desarrollo y reduciendo los tiempos de entrega.",
@@ -34,6 +36,8 @@ export const experience = [
   {
     role: "Full Stack Developer",
     company: "QuadLayers",
+    periodEn: "November 2020 — October 2022",
+    periodEs: "Noviembre 2020 — Octubre 2022",
     period: "November 2020 — October 2022",
     pointsEs: [
       "Desarrollo de plugins de WordPress basados en Gutenberg para crear una plataforma avanzada de construcción de sitios web que sea más fácil de usar para usuarios no profesionales.",

@@ -11,8 +11,11 @@ import { Link as RouterLink } from "react-router-dom";
 import MenuMobile from "../Components/MenuMobile";
 import Nav from "../Components/nav";
 import LogoMe from "../Components/logo";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const Header = () => {
+  const { t, localizedPath } = useLanguage();
+
   return (
     <Box
       as="header"
@@ -34,8 +37,8 @@ const Header = () => {
         >
           <Box
             as={RouterLink}
-            to="/"
-            aria-label="Santiago Salcedo — Home"
+            to={localizedPath("/")}
+            aria-label={t("nav.homeAria")}
             fontSize="20px"
             transition="transform 0.2s"
             _hover={{ transform: "scale(1.05)" }}
@@ -48,7 +51,7 @@ const Header = () => {
             <LogoMe />
           </Box>
           <MenuMobile />
-          <Box display={["none", "none", "block"]} as="nav" aria-label="Primary">
+          <Box display={["none", "none", "block"]} as="nav" aria-label={t("nav.primaryAria")}>
             <Nav />
           </Box>
         </Stack>

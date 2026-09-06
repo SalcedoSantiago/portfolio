@@ -4,9 +4,11 @@
 import React from "react";
 import { Stack, Text, Box, Heading, Flex } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const Project = ({ desc, title, link, repo, index = 0 }) => {
   const href = link || repo || "";
+  const { t } = useLanguage();
 
   return (
     <Box
@@ -14,7 +16,7 @@ const Project = ({ desc, title, link, repo, index = 0 }) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${title} project${repo ? " (opens in a new tab)" : ""}`}
+      aria-label={`${title} ${t("projects.projectAria")}`}
       role="group"
       position="relative"
       overflow="hidden"

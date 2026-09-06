@@ -23,13 +23,7 @@ import GsapReveal from "../Components/animations/GsapReveal";
 import { skillIcons } from "../../data/resumeData";
 import { gsap } from "../Components/animations/gsapSetup";
 import { SECTION_PY } from "../constants/layout";
-
-const skillSections = [
-  { title: "Programming Languages", items: skillIcons.languages },
-  { title: "Libraries & Frameworks", items: skillIcons.libraries },
-  { title: "AI-Assisted Development", items: skillIcons.aiTools },
-  { title: "Tools & Platforms", items: skillIcons.tools },
-];
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const SkillCategory = ({ title, items, index }) => {
   const cardRef = useRef(null);
@@ -142,24 +136,56 @@ const SkillCategory = ({ title, items, index }) => {
 };
 
 const Skills = () => {
+  const { t } = useLanguage();
+
+  const sections = useMemo(
+    () => [
+      { title: t("skills.categories.languages"), items: skillIcons.languages },
+      { title: t("skills.categories.libraries"), items: skillIcons.libraries },
+      { title: t("skills.categories.ai"), items: skillIcons.aiTools },
+      { title: t("skills.categories.tools"), items: skillIcons.tools },
+    ],
+    [t]
+  );
+
   const stats = useMemo(() => {
-    const totalTools = skillSections.reduce((sum, section) => sum + section.items.length, 0);
+    const totalTools = sections.reduce((sum, section) => sum + section.items.length, 0);
 
     return [
-      { label: "Toolbox", value: `${totalTools}+`, sub: "tools & technologies", tone: "solid" },
-      { label: "Categories", value: `${skillSections.length}`, sub: "areas of focus", tone: "outline" },
-      { label: "AI tools", value: `${skillIcons.aiTools.length}`, sub: "in daily rotation", tone: "muted" },
-      { label: "Core stack", value: "WP + React", sub: "where I live day to day", tone: "accent" },
+      {
+        label: t("skills.stats.toolbox.label"),
+        value: `${totalTools}+`,
+        sub: t("skills.stats.toolbox.sub"),
+        tone: "solid",
+      },
+      {
+        label: t("skills.stats.categories.label"),
+        value: `${sections.length}`,
+        sub: t("skills.stats.categories.sub"),
+        tone: "outline",
+      },
+      {
+        label: t("skills.stats.aiTools.label"),
+        value: `${skillIcons.aiTools.length}`,
+        sub: t("skills.stats.aiTools.sub"),
+        tone: "muted",
+      },
+      {
+        label: t("skills.stats.coreStack.label"),
+        value: t("skills.stats.coreStack.value"),
+        sub: t("skills.stats.coreStack.sub"),
+        tone: "accent",
+      },
     ];
-  }, []);
+  }, [sections, t]);
 
   return (
     <Element name="skills">
       <Box py={SECTION_PY} px={[0, 0, "40px"]}>
-        <GsapSectionTitle>Skills</GsapSectionTitle>
+        <GsapSectionTitle>{t("skills.title")}</GsapSectionTitle>
 
         <GsapReveal variant="fadeUp" delay={0.05}>
-          <Eyebrow>Tech stack</Eyebrow>
+          <Eyebrow>{t("skills.eyebrow")}</Eyebrow>
         </GsapReveal>
 
         <GsapReveal variant="fadeUp" delay={0.1}>
@@ -174,11 +200,11 @@ const Skills = () => {
             mx="auto"
             pb="8px"
           >
-            Technologies I reach for to build and{" "}
+            {t("skills.headlineBefore")}{" "}
             <Text as="span" fontStyle="italic" color="primary">
-              ship
+              {t("skills.headlineAccent")}
             </Text>{" "}
-            fast.
+            {t("skills.headlineAfter")}
           </Text>
         </GsapReveal>
 
@@ -198,7 +224,7 @@ const Skills = () => {
         </GsapReveal>
 
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6}>
-          {skillSections.map((section, index) => (
+          {sections.map((section, index) => (
             <SkillCategory
               key={section.title}
               title={section.title}
